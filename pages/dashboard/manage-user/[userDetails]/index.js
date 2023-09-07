@@ -92,7 +92,7 @@ const UserDetailsPage = ({}) => {
         </div>
         <div className="flex gap-2 w-full flex-wrap md:flex-nowrap">
           <div className="card w-full md:w-1/3">
-            <h1 className="heading pb-5">ROOM INFORMATION</h1>
+            <h1 className="heading pb-5 text-center">ROOM INFORMATION</h1>
             {Object.keys(room).length == 0 ? (
               "No room booked"
             ) : (
@@ -265,7 +265,10 @@ const UserDetailsPage = ({}) => {
               <div className="text-left w-1/2 md:w-full bg-neutral-900 rounded-md p-4">
                 <h1 className="mb-7  text-lg text-red-500">DUES</h1>
                 <h1 className="text-4xl font-bold text-red-300">
-                  ৳ {parseInt(payments?.due) + parseInt(payments?.rent)}
+                  ৳{" "}
+                  {parseInt(payments?.due) + parseInt(payments?.rent)
+                    ? parseInt(payments?.due) + parseInt(payments?.rent)
+                    : 0}
                 </h1>
                 <p className="text-sm">total pending payment</p>
               </div>
@@ -274,7 +277,7 @@ const UserDetailsPage = ({}) => {
                   SECURITY DEPOSIT
                 </h1>
                 <h1 className="text-4xl font-bold text-green-300">
-                  ৳ {payments?.advance}
+                  ৳ {payments?.advance ? payments?.advance : 0}
                 </h1>
                 <p className="text-sm">paid as advance</p>
               </div>

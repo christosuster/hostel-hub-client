@@ -22,7 +22,7 @@ const UserInformation = () => {
       .then((res) => res.json())
       .then((data) => setUser(data));
 
-    console.log(user);
+    // console.log(user);
 
     const now = new Date(user?.bookedTill);
     now.setMonth(now.getMonth() - 1);
@@ -48,7 +48,7 @@ const UserInformation = () => {
 
     const noticeList = notices?.notice?.split("\n");
   }, [userInfo?.room, userInfo?.email, userInfo?.bookedTill, userInfo]);
-  console.log(lastDay);
+  // console.log(lastDay);
   let total = 0;
 
   const today = new Date();
@@ -262,16 +262,20 @@ const UserInformation = () => {
         <div className="w-full my-3 grid grid-cols-3 gap-2">
           <div className="flex flex-col justify-end col-span-1 p-5  mb-5  bg-orange-700 rounded-lg">
             <h1 className="text-2xl py-2">Total Dues</h1>
-            <h1 className="text-4xl font-bold ">৳ {currentUserPayment?.due}</h1>
+            <h1 className="text-4xl font-bold ">
+              ৳ {currentUserPayment?.due ? currentUserPayment?.due : 0}
+            </h1>
           </div>
           <div className="flex flex-col justify-end col-span-1 p-5  mb-5 bg-teal-700 rounded-lg">
             <h1 className="text-2xl py-2">Room Rent</h1>
-            <h1 className="text-4xl font-bold ">৳ {user?.room?.cost}</h1>
+            <h1 className="text-4xl font-bold ">
+              ৳ {user?.room?.cost ? user?.room?.cost : 0}
+            </h1>
           </div>
           <div className="flex flex-col justify-end col-span-1 p-5 mb-5 bg-green-700 rounded-lg">
             <h1 className="text-2xl py-2">Security Deposit</h1>
             <h1 className="text-4xl font-bold ">
-              ৳ {currentUserPayment?.advance}
+              ৳ {currentUserPayment?.advance ? currentUserPayment?.advance : 0}
             </h1>
           </div>
         </div>
@@ -283,9 +287,17 @@ const UserInformation = () => {
               Pay rent by {lastDay?.toDateString()}
             </h1>
           ) : (
-            <h1 className="text-2xl">
-              Clear dues by {lastMonth?.toDateString()}
+            ""
+          )}
+
+          {currentUserPayment?.due &&
+          parseInt(currentUserPayment?.due) <
+            parseInt(parseInt(currentUserPayment?.advance)) ? (
+            <h1 className="text-2xl animate-pulse font-bold text-red-500">
+              Pay rent by {lastDay?.toDateString()}
             </h1>
+          ) : (
+            ""
           )}
 
           <Link className="button block my-4" href={"/dashboard/pay"}>

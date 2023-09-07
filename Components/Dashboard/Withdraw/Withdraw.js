@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineSearch } from "react-icons/ai";
 import Loading from "../../Shared/Loading/Loading";
+import swal from "sweetalert";
 
 const Withdraw = () => {
   const [isLoading, setIsLoading] = useState();
@@ -36,36 +37,42 @@ const Withdraw = () => {
     reset();
   };
 
-  const deleteItem = (id) => {
-    swal({
-      title: "Are you sure?",
-      text: "Once withdrawn, the pay account of the user will be removed!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        fetch(`http://localhost:5000/delete-payment/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.acknowledged) {
-              console.log(data);
-              swal("Pay account removed!", {
-                icon: "success",
-              });
-
-              const remainingPay = payments?.filter(
-                (payCheck) => payCheck._id !== id
-              );
-              setPayments(remainingPay);
-              setPayData(null);
-            }
+  const handleWithdraw = (id) => {
+    if (parseInt(payData?.advance) - parseInt(payData?.due) <= 0) {
+      swal("Invalid withdraw amount!", {
+        icon: "error",
+      });
+    } else {
+      swal({
+        title: "Are you sure?",
+        text: "User won't be able to use system without security deposit",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((yes) => {
+        if (yes) {
+          fetch(`http://localhost:5000/withdraw/${id}`, {
+            method: "PUT",
           })
-          .then((data) => console.log(data));
-      }
-    });
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.acknowledged) {
+                console.log(data);
+                swal("Withdrawn amount successfully", {
+                  icon: "success",
+                });
+
+                const remainingPay = payments?.filter(
+                  (payCheck) => payCheck._id !== id
+                );
+                setPayments(remainingPay);
+                setPayData(null);
+              }
+            })
+            .then((data) => console.log(data));
+        }
+      });
+    }
   };
 
   return (
@@ -73,7 +80,7 @@ const Withdraw = () => {
       {isLoading && <Loading></Loading>}
       {!isLoading && (
         <div className="flex flex-col justify-center items-center w-full rounded-lg p-4">
-          <h1 className="text-center my-2 mb-10 text-2xl">
+          <h1 className="text-center my-2 mb-10 text-2xl underline">
             Withdraw Security Deposit
           </h1>
           <form onSubmit={handleSubmit(submitHandler)}>
@@ -94,10 +101,12 @@ const Withdraw = () => {
           {payData && (
             <div className=" w-full card py-8">
               <div className="w-full md:w-1/2">
-                <h1 className="text-sm text-gray-500 leading-3 text-center">
-                  User Email
+                <h1 className="text-sm text-gray-500 leading-3 text-center mb-4">
+                  User Information
                 </h1>
-                <h1 className="text-center text-2xl mb-4">{payData?.email}</h1>
+                <h1 className="text-center text-2xl ">{payData?.name}</h1>
+                <h1 className="text-center">{payData?.email}</h1>
+                <h1 className="text-center mb-4">{payData?.phone}</h1>
 
                 <div className=" w-full p-5 mx-auto bg-neutral-900">
                   <h1 className="flex justify-between text-xl">
@@ -127,7 +136,7 @@ const Withdraw = () => {
                 <div className="flex items-center justify-center">
                   <button
                     onClick={() => {
-                      deleteItem(payData?._id);
+                      handleWithdraw(payData?._id);
                     }}
                     className="button mt-3"
                   >
@@ -216,7 +225,13 @@ const Withdraw = () => {
                           scope="col"
                           className="p-4 text-left text-xs font-medium text-white uppercase tracking-wider"
                         >
-                          User Id
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="p-4 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        >
+                          Phone
                         </th>
 
                         <th
@@ -241,7 +256,10 @@ const Withdraw = () => {
                               {singlePayment?.email}
                             </td>
                             <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
-                              {singlePayment?.uid}
+                              {singlePayment?.name}
+                            </td>
+                            <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
+                              {singlePayment?.phone}
                             </td>
 
                             <td className="p-4 whitespace-nowrap text-sm font-normal text-white">

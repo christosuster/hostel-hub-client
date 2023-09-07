@@ -33,8 +33,8 @@ const RoomRequests = ({ payments }) => {
           <div className="overflow-x-auto rounded-lg h-52">
             <div className="align-middle inline-block min-w-full">
               <div className="shadow overflow-hidden sm:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200 text-white">
-                  <thead className=" bg-[#36393e52]">
+                <table className="bg-zinc-800 min-w-full divide-y divide-gray-200 text-white">
+                  <thead className=" bg-zinc-900">
                     <tr>
                       <th
                         scope="col"
@@ -59,11 +59,8 @@ const RoomRequests = ({ payments }) => {
                   <tbody className=" bg-[#36393e52]">
                     {payments?.map((payment, i) => {
                       const date = new Date(payment?.paymentHistory[0]?.date);
-                      return (
-                        <tr
-                          className={`${i % 2 && "bg-[#36393e82]"}`}
-                          key={payment._id}
-                        >
+                      return payment?.paymentHistory[0] ? (
+                        <tr className="border-b" key={payment._id}>
                           <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
                             {payment?.email}
                           </td>
@@ -74,6 +71,8 @@ const RoomRequests = ({ payments }) => {
                             ৳ {payment?.paymentHistory[0]?.amount}
                           </td>
                         </tr>
+                      ) : (
+                        ""
                       );
                     })}
                     {/* <tr>

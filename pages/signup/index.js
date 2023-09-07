@@ -44,6 +44,8 @@ const Sighup = () => {
       bookedOn: "",
       bookedTill: "",
       pid: "",
+      mealPlan: [{}, {}, {}],
+      confirmedMealPlan: [{}, {}, {}],
     };
 
     createUser(email, password, userData);

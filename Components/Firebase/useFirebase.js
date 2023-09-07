@@ -42,16 +42,38 @@ const useFirebase = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {
-              console.log("Register successfully");
-              form.reset();
+              console.log("insertedId: ", data.insertedId);
+              return data;
             }
           })
+          .then((data) => {
+            console.log(data);
+            const paymentData = {
+              email: email,
+              name: userData?.displayName,
+              phone: userData?.phone,
+              uid: data?.insertedId,
+              due: 0,
+              rent: 0,
+              advance: 0,
+              paymentHistory: [],
+            };
+            fetch("http://localhost:5000/payment", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(paymentData),
+            });
+          })
+          .then((res) => res.json())
+          .then((data) => console.log("Payment created", data))
           .catch((error) => console.error(error));
         swal("Create Account Successful!", {
           icon: "success",
         });
         setIsLoading(false);
-        router.replace("/");
+        // router.replace("/");
       })
       .catch((error) => {
         setAuthError(error.message);

@@ -7,25 +7,25 @@ const RoomLeaving = ({ payments }) => {
         <h3 className="text-xl leading-none font-bold text-white mb-10">
           Latest Payments
         </h3>
-        <div className="block w-full h-[17rem] overflow-auto">
-          <table className="items-center w-full bg-transparent border-collapse">
-            <thead>
+        <div className="block w-full h-[17rem] overflow-auto rounded-lg">
+          <table className="items-center w-full bg-transparent border-collapse bg-zinc-800 rounded">
+            <thead className="bg-zinc-900">
               <tr>
-                <th className="px-4 bg-[#36393e72] text-gray-50 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
+                <th className="px-4  text-gray-50 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
                   EMAIL
                 </th>
-                <th className="px-4 bg-[#36393e72] text-gray-50 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
+                <th className="px-4  text-gray-50 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
                   Payment amount
                 </th>
-                <th className="px-4 bg-[#36393e72] text-gray-50 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap min-w-140-px">
+                <th className="px-4  text-gray-50 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap min-w-140-px">
                   Date
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100">
+            <tbody className="divide-y divide-gray-100 bg-[#36393e52]">
               {payments?.map((payment, i) => {
                 const idx = payment?.paymentHistory?.length - 1;
-                return (
+                return payment?.paymentHistory?.length > 0 ? (
                   <tr key={payment?._id} className="text-gray-50">
                     <th className="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
                       {payment?.email}
@@ -37,6 +37,8 @@ const RoomLeaving = ({ payments }) => {
                       {payment?.paymentHistory[idx]?.date}
                     </td>
                   </tr>
+                ) : (
+                  ""
                 );
               })}
               {/* <tr className="text-gray-50">

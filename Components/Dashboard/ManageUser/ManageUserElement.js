@@ -60,10 +60,13 @@ const ManageUserElement = ({ data, remainingUsers, idx }) => {
       </td>
       <td className="text-center">
         {data?.room != "" &&
-        data?.room != {} &&
-        data?.room?.category == "Economic"
-          ? "Shared Room"
-          : "Private Room"}
+          data?.room != {} &&
+          data?.room?.category == "Economic" &&
+          "Shared Room"}
+        {data?.room != "" &&
+          data?.room != {} &&
+          data?.room?.category == "Business" &&
+          "Private Room"}
         <br />
         {data?.room != "" &&
           data?.room != {} &&

@@ -19,8 +19,8 @@ const LatestTransactions = ({ rooms }) => {
           <div className="overflow-x-auto rounded-lg h-52">
             <div className="align-middle inline-block min-w-full">
               <div className="shadow overflow-hidden sm:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200 text-white">
-                  <thead className=" bg-[#36393e52]">
+                <table className="bg-zinc-800 min-w-full divide-y divide-gray-200 text-white">
+                  <thead className=" bg-zinc-900">
                     <tr>
                       <th
                         scope="col"
@@ -50,7 +50,7 @@ const LatestTransactions = ({ rooms }) => {
                           room.bookedBy?.length < 4)
                       )
                         return (
-                          <tr className="" key={room?._id}>
+                          <tr className="border-b" key={room?._id}>
                             <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
                               {room?.branch}
                             </td>
