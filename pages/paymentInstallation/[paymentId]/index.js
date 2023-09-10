@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import AuthCheck from "../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../Components/Firebase/authCheck";
 import useAuth from "../../../Components/Firebase/useAuth";
 import MainLayout from "../../../Components/MainLayout/MainLayout";
 import MainPayment from "../../../Components/Payment/MainPayment";
@@ -49,4 +49,4 @@ const PaymentInstallation = () => {
   );
 };
 
-export default AuthCheck(PaymentInstallation);
+export default authCheck(PaymentInstallation);

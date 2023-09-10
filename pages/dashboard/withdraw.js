@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../Components/Dashboard/Layout";
 import Withdraw from "../../Components/Dashboard/Withdraw/Withdraw";
 import adminCheck from "../../Components/Firebase/adminCheck";
-import AuthCheck from "../../Components/Firebase/AuthCheck";
+import authCheck from "../../Components/Firebase/authCheck";
 
 const withdraw = () => {
   return (
@@ -14,4 +14,4 @@ const withdraw = () => {
   );
 };
 
-export default AuthCheck(adminCheck(withdraw));
+export default authCheck(adminCheck(withdraw));

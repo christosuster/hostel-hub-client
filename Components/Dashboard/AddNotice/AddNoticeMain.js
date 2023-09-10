@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import adminCheck from "../../Firebase/adminCheck";
-import AuthCheck from "../../Firebase/AuthCheck";
+import authCheck from "../../Firebase/authCheck";
 import swal from "sweetalert";
 import Loading from "../../Shared/Loading/Loading";
 import { useRouter } from "next/router";
@@ -212,4 +212,4 @@ const AddNoticeMain = () => {
   );
 };
 
-export default AuthCheck(adminCheck(AddNoticeMain));
+export default authCheck(adminCheck(AddNoticeMain));

@@ -4,7 +4,7 @@ import MainAdminDashboardHome from "../../Components/Dashboard/AdminDashboardHom
 // import DashboardItem from "../../Components/Dashboard/Profile/DashboardItem";
 import Layout from "../../Components/Dashboard/Layout";
 import useAuth from "../../Components/Firebase/useAuth";
-import AuthCheck from "../../Components/Firebase/AuthCheck";
+import authCheck from "../../Components/Firebase/authCheck";
 import UserInformation from "../../Components/UserInformation";
 import Loading from "../../Components/Loading/Loading";
 
@@ -23,4 +23,4 @@ const Dashboard = () => {
   );
 };
 
-export default AuthCheck(Dashboard);
+export default authCheck(Dashboard);

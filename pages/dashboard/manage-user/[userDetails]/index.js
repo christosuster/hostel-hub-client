@@ -3,7 +3,7 @@ import Layout from "../../../../Components/Dashboard/Layout";
 import { useEffect, useState } from "react";
 import Loading from "../../../../Components/Loading/Loading";
 import adminCheck from "../../../../Components/Firebase/adminCheck";
-import AuthCheck from "../../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../../Components/Firebase/authCheck";
 import Link from "next/link";
 
 // export default function UserDetailsPage({}) {
@@ -339,4 +339,4 @@ const UserDetailsPage = ({}) => {
   );
 };
 
-export default AuthCheck(adminCheck(UserDetailsPage));
+export default authCheck(adminCheck(UserDetailsPage));

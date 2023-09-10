@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ManageUserElement from "./ManageUserElement";
 import Loading from "../../Loading/Loading";
 import adminCheck from "../../Firebase/adminCheck";
-import AuthCheck from "../../Firebase/AuthCheck";
+import authCheck from "../../Firebase/authCheck";
 import { Tooltip } from "react-tooltip";
 import { RiInformationLine } from "react-icons/ri";
 

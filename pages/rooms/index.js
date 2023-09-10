@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import Room from "../../Components/Rooms/Room";
-import AuthCheck from "../../Components/Firebase/AuthCheck.js";
+import authCheck from "../../Components/Firebase/authCheck.js";
 import MainLayout from "../../Components/MainLayout/MainLayout.js";
 import RoomContext from "../../Components/contexts/RoomContext";
 
@@ -53,4 +53,4 @@ const Rooms = () => {
   );
 };
 
-export default AuthCheck(Rooms);
+export default authCheck(Rooms);

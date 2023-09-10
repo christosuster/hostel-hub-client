@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import adminCheck from "../../Firebase/adminCheck";
-import AuthCheck from "../../Firebase/AuthCheck";
+import authCheck from "../../Firebase/authCheck";
 import Loading from "../../Shared/Loading/Loading";
 import { RiInformationLine } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
@@ -390,4 +390,4 @@ const AddRoomMain = () => {
   );
 };
 
-export default AuthCheck(adminCheck(AddRoomMain));
+export default authCheck(adminCheck(AddRoomMain));

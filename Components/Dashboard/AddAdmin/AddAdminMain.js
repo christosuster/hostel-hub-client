@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import adminCheck from "../../Firebase/adminCheck";
-import AuthCheck from "../../Firebase/AuthCheck";
+import authCheck from "../../Firebase/authCheck";
 import swal from "sweetalert";
 
 const AddAdminMain = () => {
@@ -70,4 +70,4 @@ const AddAdminMain = () => {
   );
 };
 
-export default AuthCheck(adminCheck(AddAdminMain));
+export default authCheck(adminCheck(AddAdminMain));

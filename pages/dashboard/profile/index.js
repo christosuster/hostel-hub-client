@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainProfile from "../../../Components/Dashboard/Profile/MainProfile";
-import AuthCheck from "../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../Components/Firebase/authCheck";
 import useAuth from "../../../Components/Firebase/useAuth";
 import MainLayout from "../../../Components/MainLayout/MainLayout";
 
@@ -22,4 +22,4 @@ const Profile = () => {
   );
 };
 
-export default AuthCheck(Profile);
+export default authCheck(Profile);

@@ -1,4 +1,4 @@
-import AuthCheck from "../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../Components/Firebase/authCheck";
 import MainLayout from "../../../Components/MainLayout/MainLayout";
 
 const makePayment = () => {
@@ -16,4 +16,4 @@ const makePayment = () => {
   );
 };
 
-export default AuthCheck(makePayment);
+export default authCheck(makePayment);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../../../Components/Dashboard/Layout";
 import adminCheck from "../../../Components/Firebase/adminCheck";
-import AuthCheck from "../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../Components/Firebase/authCheck";
 
 const ManagePayments = () => {
   const [paymentRecords, setPaymentRecords] = useState([]);
@@ -64,4 +64,4 @@ const ManagePayments = () => {
   );
 };
 
-export default AuthCheck(adminCheck(ManagePayments));
+export default authCheck(adminCheck(ManagePayments));

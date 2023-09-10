@@ -5,7 +5,7 @@ import useAuth from "../../../Components/Firebase/useAuth";
 import Layout from "../../../Components/Dashboard/Layout";
 import { useRouter } from "next/router";
 import Loading from "../../../Components/Shared/Loading/Loading";
-import AuthCheck from "../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../Components/Firebase/authCheck";
 import { RiInformationLine } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
 
@@ -425,4 +425,4 @@ const Meals = () => {
   );
 };
 
-export default AuthCheck(Meals);
+export default authCheck(Meals);

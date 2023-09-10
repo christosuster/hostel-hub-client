@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../../../Components/Dashboard/Layout";
 import adminCheck from "../../../Components/Firebase/adminCheck";
-import AuthCheck from "../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../Components/Firebase/authCheck";
 
 const MealOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -230,4 +230,4 @@ const MealOrders = () => {
   );
 };
 
-export default AuthCheck(adminCheck(MealOrders));
+export default authCheck(adminCheck(MealOrders));

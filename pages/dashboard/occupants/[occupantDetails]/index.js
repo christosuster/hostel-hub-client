@@ -5,7 +5,7 @@ import useAuth from "../../../../Components/Firebase/useAuth";
 import Loading from "../../../../Components/Loading/Loading";
 import Occupants from "../../../../Components/Occupants/Occupants";
 import adminCheck from "../../../../Components/Firebase/adminCheck";
-import AuthCheck from "../../../../Components/Firebase/AuthCheck";
+import authCheck from "../../../../Components/Firebase/authCheck";
 const OccupantDetails = () => {
   const router = useRouter();
   const [id, setId] = useState(router.query.occupantDetails);
@@ -99,4 +99,4 @@ const OccupantDetails = () => {
   );
 };
 
-export default AuthCheck(adminCheck(OccupantDetails));
+export default authCheck(adminCheck(OccupantDetails));
