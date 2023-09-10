@@ -106,12 +106,12 @@ const HostelHub = () => {
             <div className="text-center">
               <h1 className="text-xl font-semibold">One Revolutionary Tool</h1>
               <p className="text-gray-500">
-                <span className="text-3xl"> " </span>
+                <span className="text-3xl"> &ldquo; </span>
                 Hostel Hub has revolutionized the way we manage our hostel.
                 Their user-friendly platform has made bookings a breeze, and the
                 real-time insights have saved us countless hours of manual
-                labor. It's a game-changer for any hostel owner!
-                <span className="text-3xl leading-3"> " </span>
+                labor. It is a game-changer for any hostel owner!
+                <span className="text-3xl leading-3"> &rdquo; </span>
               </p>
               <img
                 src="https://i.ibb.co/Xy39ns9/super2.png"

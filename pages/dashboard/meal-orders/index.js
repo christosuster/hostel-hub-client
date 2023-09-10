@@ -52,10 +52,13 @@ const MealOrders = () => {
               BREAKFAST
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {breakfast.map((item) => {
+              {breakfast.map((item, index) => {
                 idx1++;
                 return (
-                  <div className="card p-0 border-2 border-gray-500/30  ">
+                  <div
+                    className="card p-0 border-2 border-gray-500/30 "
+                    key={index}
+                  >
                     <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
                       <h1 className="font-bold">Breakfast #{idx1}</h1>
                       <p className="text-sm ">
@@ -74,6 +77,7 @@ const MealOrders = () => {
                             i % 2 == 0 && "bg-zinc-600/20"
                           } w-full gap-2
                           `}
+                          key={e.uid}
                         >
                           <div className="flex justify-center items-center flex-col p-1">
                             <h1 className="font-semibold">
@@ -107,10 +111,13 @@ const MealOrders = () => {
               LUNCH
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {lunch.map((item) => {
+              {lunch.map((item, index) => {
                 idx2++;
                 return (
-                  <div className="card p-0 border-2 border-gray-500/30">
+                  <div
+                    className="card p-0 border-2 border-gray-500/30"
+                    key={index}
+                  >
                     <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
                       <h1 className="font-bold">Lunch #{idx2}</h1>
                       <p className="text-sm ">
@@ -125,6 +132,7 @@ const MealOrders = () => {
                       console.log(e);
                       return (
                         <div
+                          key={e.uid}
                           className={`grid grid-cols-3 text-center ${
                             i % 2 == 0 && "bg-zinc-600/20"
                           } w-full gap-2
@@ -162,10 +170,13 @@ const MealOrders = () => {
               DINNER
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {breakfast.map((item) => {
+              {breakfast.map((item, index) => {
                 idx3++;
                 return (
-                  <div className="card p-0 border-2 border-gray-500/30">
+                  <div
+                    key={index}
+                    className="card p-0 border-2 border-gray-500/30"
+                  >
                     <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
                       <h1 className="font-bold">Dinner #{idx3}</h1>
                       <p className="text-sm ">
@@ -180,6 +191,7 @@ const MealOrders = () => {
                       console.log(e);
                       return (
                         <div
+                          key={e.uid}
                           className={`grid grid-cols-3 text-center ${
                             i % 2 == 0 && "bg-zinc-600/20"
                           } w-full gap-2

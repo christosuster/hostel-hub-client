@@ -24,7 +24,7 @@ export default function AboutUs() {
           <p className="text-gray-300 w-3/4 md:w-1/2">
             At Super Hostel, we understand that the journey of being a student
             away from home is an incredible adventure filled with opportunities
-            and challenges. That's why we've created a haven designed
+            and challenges. That&apos;s why we&apos;ve created a haven designed
             specifically for students, offering not just a place to stay but a
             supportive community that becomes your second family.
           </p>

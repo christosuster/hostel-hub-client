@@ -77,7 +77,7 @@ export default function Login() {
           </div>
           <div className=" py-5 flex justify-center">
             <h1>
-              Don't have an account?
+              Don&apos;t have an account?
               <Link className="text-blue-500 font-bold" href={"/signup"}>
                 {" "}
                 Sign Up

@@ -125,12 +125,12 @@ export default function Home() {
                     One Revolutionary Tool
                   </h1>
                   <p className="text-gray-500">
-                    <span className="text-3xl"> " </span>
+                    <span className="text-3xl"> &ldquo; </span>
                     Hostel Hub has revolutionized the way we manage our hostel.
                     Their user-friendly platform has made bookings a breeze, and
                     the real-time insights have saved us countless hours of
-                    manual labor. It's a game-changer for any hostel owner!
-                    <span className="text-3xl leading-3"> " </span>
+                    manual labor. It&apos;s a game-changer for any hostel owner!
+                    <span className="text-3xl leading-3"> &rdquo; </span>
                   </p>
                   <Link href="/super-hostel">
                     <img
