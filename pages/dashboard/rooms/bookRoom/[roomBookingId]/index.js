@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Layout from "../../../../../Components/Dashboard/Layout";
-import authCheck from "../../../../../Components/Firebase/authCheck";
+import AuthCheck from "../../../../../Components/Firebase/AuthCheck";
 import { useEffect, useState } from "react";
 import useAuth from "../../../../../Components/Firebase/useAuth";
 
@@ -116,4 +116,4 @@ const RoomBooking = () => {
   );
 };
 
-export default authCheck(RoomBooking);
+export default AuthCheck(RoomBooking);

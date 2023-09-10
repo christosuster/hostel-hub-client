@@ -2,7 +2,7 @@ import React from "react";
 import AddRoomMain from "../../Components/Dashboard/AddRoom/AddRoomMain";
 import Layout from "../../Components/Dashboard/Layout";
 import adminCheck from "../../Components/Firebase/adminCheck";
-import authCheck from "../../Components/Firebase/authCheck";
+import AuthCheck from "../../Components/Firebase/AuthCheck";
 
 const AddRoom = () => {
   return (
@@ -14,4 +14,4 @@ const AddRoom = () => {
   );
 };
 
-export default authCheck(adminCheck(AddRoom));
+export default AuthCheck(adminCheck(AddRoom));

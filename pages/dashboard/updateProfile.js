@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../Components/Dashboard/Layout";
 import MainProfile from "../../Components/Dashboard/Profile/MainProfile";
-import authCheck from "../../Components/Firebase/authCheck";
+import AuthCheck from "../../Components/Firebase/AuthCheck";
 import useAuth from "../../Components/Firebase/useAuth";
 import Loading from "../../Components/Shared/Loading/Loading";
 
@@ -24,4 +24,4 @@ const UpdateProfile = () => {
   );
 };
 
-export default authCheck(UpdateProfile);
+export default AuthCheck(UpdateProfile);

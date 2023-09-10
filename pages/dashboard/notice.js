@@ -1,16 +1,16 @@
-import React from 'react';
-import Layout from '../../Components/Dashboard/Layout';
-import NoticeMain from '../../Components/Dashboard/Notice/NoticeMain';
-import authCheck from '../../Components/Firebase/authCheck';
+import React from "react";
+import Layout from "../../Components/Dashboard/Layout";
+import NoticeMain from "../../Components/Dashboard/Notice/NoticeMain";
+import AuthCheck from "../../Components/Firebase/AuthCheck";
 
 const notice = () => {
-    return (
-        <div>
-            <Layout>
-                <NoticeMain></NoticeMain>
-            </Layout>
-        </div>
-    );
+  return (
+    <div>
+      <Layout>
+        <NoticeMain></NoticeMain>
+      </Layout>
+    </div>
+  );
 };
 
-export default authCheck(notice);
+export default AuthCheck(notice);

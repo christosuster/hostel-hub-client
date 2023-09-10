@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../../Components/Dashboard/Layout";
 import ManageUserMain from "../../../Components/Dashboard/ManageUser/ManageUserMain";
 import adminCheck from "../../../Components/Firebase/adminCheck";
-import authCheck from "../../../Components/Firebase/authCheck";
+import AuthCheck from "../../../Components/Firebase/AuthCheck";
 
 const ManageUser = () => {
   return (
@@ -14,4 +14,4 @@ const ManageUser = () => {
   );
 };
 
-export default authCheck(adminCheck(ManageUser));
+export default AuthCheck(adminCheck(ManageUser));

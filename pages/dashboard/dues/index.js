@@ -2,7 +2,7 @@ import Layout from "../../../Components/Dashboard/Layout";
 import { useState, useEffect } from "react";
 
 import React from "react";
-import authCheck from "../../../Components/Firebase/authCheck";
+import AuthCheck from "../../../Components/Firebase/AuthCheck";
 import adminCheck from "../../../Components/Firebase/adminCheck";
 
 const Dues = () => {
@@ -47,4 +47,4 @@ const Dues = () => {
   );
 };
 
-export default authCheck(adminCheck(Dues));
+export default AuthCheck(adminCheck(Dues));

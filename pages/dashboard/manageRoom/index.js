@@ -1,7 +1,7 @@
 import React from "react";
 import ManageRoomsMain from "../../../Components/Dashboard/ManageRoom/ManageRoomsMain";
 import adminCheck from "../../../Components/Firebase/adminCheck";
-import authCheck from "../../../Components/Firebase/authCheck";
+import AuthCheck from "../../../Components/Firebase/AuthCheck";
 import Layout from "../../../Components/Dashboard/Layout";
 
 const ManageRoom = () => {
@@ -14,4 +14,4 @@ const ManageRoom = () => {
   );
 };
 
-export default authCheck(adminCheck(ManageRoom));
+export default AuthCheck(adminCheck(ManageRoom));

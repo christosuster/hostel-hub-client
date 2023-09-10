@@ -3,7 +3,7 @@ import AddAdminMain from "../../Components/Dashboard/AddAdmin/AddAdminMain";
 import Layout from "../../Components/Dashboard/Layout";
 import ManageAdmins from "../../Components/Dashboard/ManageAdmins/ManageAdmins";
 import adminCheck from "../../Components/Firebase/adminCheck";
-import authCheck from "../../Components/Firebase/authCheck";
+import AuthCheck from "../../Components/Firebase/AuthCheck";
 
 const AddAdmin = () => {
   return (
@@ -18,4 +18,4 @@ const AddAdmin = () => {
   );
 };
 
-export default authCheck(adminCheck(AddAdmin));
+export default AuthCheck(adminCheck(AddAdmin));

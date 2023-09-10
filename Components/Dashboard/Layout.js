@@ -11,7 +11,7 @@ import { RiAdminFill, RiMoneyDollarBoxFill } from "react-icons/ri";
 import { MdPayment } from "react-icons/md";
 import { GiHotMeal, GiMoneyStack } from "react-icons/gi";
 import useAuth from "../Firebase/useAuth";
-import authCheck from "../Firebase/authCheck";
+import AuthCheck from "../Firebase/AuthCheck";
 
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";

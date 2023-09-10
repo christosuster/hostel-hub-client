@@ -2,7 +2,7 @@ import React from "react";
 import AdminProfileMain from "../../Components/Dashboard/AdminProfile/AdminProfileMain";
 import Layout from "../../Components/Dashboard/Layout";
 import adminCheck from "../../Components/Firebase/adminCheck";
-import authCheck from "../../Components/Firebase/authCheck";
+import AuthCheck from "../../Components/Firebase/AuthCheck";
 
 const adminProfile = () => {
   return (
@@ -14,4 +14,4 @@ const adminProfile = () => {
   );
 };
 
-export default authCheck(adminCheck(adminProfile));
+export default AuthCheck(adminCheck(adminProfile));

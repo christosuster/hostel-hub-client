@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../Components/Dashboard/Layout";
-import authCheck from "../../Components/Firebase/authCheck";
+import AuthCheck from "../../Components/Firebase/AuthCheck";
 import MainPayment from "../../Components/Payment/MainPayment";
 import swal from "sweetalert";
 import useAuth from "../../Components/Firebase/useAuth";
@@ -141,4 +141,4 @@ const Payment = () => {
   );
 };
 
-export default authCheck(Payment);
+export default AuthCheck(Payment);

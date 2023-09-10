@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Loading from "../Shared/Loading/Loading";
 import useAuth from "./useAuth";
 
-const authCheck = (WrappedComponent) => {
+const AuthCheck = (WrappedComponent) => {
   const PrivateRoute = () => {
     const { user, isLoading } = useAuth();
     const router = useRouter();
@@ -36,4 +36,4 @@ const authCheck = (WrappedComponent) => {
   return PrivateRoute;
 };
 
-export default authCheck;
+export default AuthCheck;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import adminCheck from "../../Firebase/adminCheck";
-import authCheck from "../../Firebase/authCheck";
+import AuthCheck from "../../Firebase/AuthCheck";
 import Loading from "../../Loading/Loading";
 import ManageAdminElement from "./ManageAdminElement";
 import { Tooltip } from "react-tooltip";
@@ -70,4 +70,4 @@ const ManageAdmins = () => {
   );
 };
 
-export default authCheck(adminCheck(ManageAdmins));
+export default AuthCheck(adminCheck(ManageAdmins));

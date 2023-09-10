@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import authCheck from "../../Firebase/authCheck";
+import AuthCheck from "../../Firebase/AuthCheck";
 import Loading from "../../Shared/Loading/Loading";
 
 const NoticeMain = () => {
@@ -70,4 +70,4 @@ const NoticeMain = () => {
   );
 };
 
-export default authCheck(NoticeMain);
+export default AuthCheck(NoticeMain);
