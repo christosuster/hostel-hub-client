@@ -19,7 +19,7 @@ const Withdraw = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/payments")
+    fetch("https://hostel-hub-yg4y.onrender.com/payments")
       .then((res) => res.json())
       .then((data) => setPayments(data))
       .then(() => setIsLoading(false));
@@ -53,7 +53,7 @@ const Withdraw = () => {
         dangerMode: true,
       }).then((yes) => {
         if (yes) {
-          fetch(`http://localhost:5000/withdraw/${id}`, {
+          fetch(`https://hostel-hub-yg4y.onrender.com/withdraw/${id}`, {
             method: "PUT",
           })
             .then((res) => res.json())

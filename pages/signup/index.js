@@ -50,7 +50,7 @@ const Sighup = () => {
 
     createUser(email, password, userData);
     // .then(() => {
-    //   fetch("http://localhost:5000/users-data", {
+    //   fetch("https://hostel-hub-yg4y.onrender.com/users-data", {
     //     method: "POST",
     //     headers: {
     //       "content-type": "application/json",

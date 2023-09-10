@@ -11,7 +11,7 @@ const ManageAdminElement = ({ data, remainingUsers }) => {
     }).then((willDelete) => {
       if (willDelete) {
         remainingUsers(data._id);
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://hostel-hub-yg4y.onrender.com/users`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -36,7 +36,7 @@ const ManageAdminElement = ({ data, remainingUsers }) => {
 
     //   if (agree) {
     //     remainingUsers(data._id);
-    //     fetch(`http://localhost:5000/users`, {
+    //     fetch(`https://hostel-hub-yg4y.onrender.com/users`, {
     //       method: "PUT",
     //       headers: {
     //         "content-type": "application/json",

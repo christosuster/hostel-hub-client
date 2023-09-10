@@ -12,7 +12,7 @@ const ManageUserMain = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/users")
+    fetch("https://hostel-hub-yg4y.onrender.com/users")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

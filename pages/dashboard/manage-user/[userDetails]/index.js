@@ -16,16 +16,16 @@ const UserDetailsPage = ({}) => {
   const [room, setRoom] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${id}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/users/${id}`)
       .then((res) => res.json())
       .then((data) => setUser(data))
       .then(
-        fetch(`http://localhost:5000/roomsByUid/${id}`)
+        fetch(`https://hostel-hub-yg4y.onrender.com/roomsByUid/${id}`)
           .then((res) => res.json())
           .then((data) => setRoom(data))
       )
       .then(
-        fetch(`http://localhost:5000/payments/${id}`)
+        fetch(`https://hostel-hub-yg4y.onrender.com/payments/${id}`)
           .then((res) => res.json())
           .then((data) => setPayments(data))
       );

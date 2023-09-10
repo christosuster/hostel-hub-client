@@ -18,7 +18,7 @@ const UserInformation = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users-data/${userInfo.email}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/users-data/${userInfo.email}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
 
@@ -38,11 +38,11 @@ const UserInformation = () => {
     const date2 = new Date(userInfo?.bookedTill);
     setBookedTill(date2.toDateString());
 
-    fetch("http://localhost:5000/notices")
+    fetch("https://hostel-hub-yg4y.onrender.com/notices")
       .then((res) => res.json())
       .then((data) => setNotices(data));
 
-    fetch(`http://localhost:5000/payments/${userInfo._id}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/payments/${userInfo._id}`)
       .then((res) => res.json())
       .then((data) => setCurrentUserPayment(data));
 
@@ -64,7 +64,7 @@ const UserInformation = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch("http://localhost:5000/cancelRoom", {
+        fetch("https://hostel-hub-yg4y.onrender.com/cancelRoom", {
           method: "PUT",
           headers: {
             "content-type": "application/json",

@@ -23,7 +23,7 @@ export default function RoomDetails() {
     setId(router.query.roomId);
     if (id) {
       console.log(id);
-      fetch(`http://localhost:5000/rooms/${id}`)
+      fetch(`https://hostel-hub-yg4y.onrender.com/rooms/${id}`)
         .then((res) => res.json())
         .then((data) => {
           setSelectedRoom(data);

@@ -12,7 +12,7 @@ export const RoomProvider = ({ children }) => {
   useEffect(() => {
     setIsLoading(true);
     const getRooms = async () => {
-      const res = await fetch("http://localhost:5000/rooms");
+      const res = await fetch("https://hostel-hub-yg4y.onrender.com/rooms");
       const data = await res.json();
 
       setRoomData(data.reverse());
@@ -29,7 +29,7 @@ export const RoomProvider = ({ children }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/delete-room/${id}`, {
+        fetch(`https://hostel-hub-yg4y.onrender.com/delete-room/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

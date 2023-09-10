@@ -7,11 +7,11 @@ const ManagePayments = () => {
   const [paymentRecords, setPaymentRecords] = useState([]);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/payments")
+    fetch("https://hostel-hub-yg4y.onrender.com/payments")
       .then((res) => res.json())
       .then((data) => setPaymentRecords(data))
       .then(
-        fetch("http://localhost:5000/users")
+        fetch("https://hostel-hub-yg4y.onrender.com/users")
           .then((r) => r.json())
           .then((data) => setUsers(data))
       );

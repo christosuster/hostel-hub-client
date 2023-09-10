@@ -23,7 +23,7 @@ const DashboardPayment = ({ payInfo }) => {
             id: payInfo?._id,
             amount: parseInt(payInfo?.rent) + parseInt(payInfo?.due),
           };
-          fetch("http://localhost:5000/payments", {
+          fetch("https://hostel-hub-yg4y.onrender.com/payments", {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(paymentData),

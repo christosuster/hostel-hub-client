@@ -140,7 +140,7 @@ const AddRoomMain = () => {
       setIsLoading(false);
       return;
     }
-    fetch("http://localhost:5000/rooms", {
+    fetch("https://hostel-hub-yg4y.onrender.com/rooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",

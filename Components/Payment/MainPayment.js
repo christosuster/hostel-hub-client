@@ -18,7 +18,7 @@ const MainPayment = ({ room, payInfo }) => {
         if (willDelete) {
           if (room?.category === "Business") {
             if (Object.keys(userInfo?.room).length == 0) {
-              fetch("http://localhost:5000/rooms", {
+              fetch("https://hostel-hub-yg4y.onrender.com/rooms", {
                 method: "PUT",
                 headers: {
                   "content-type": "application/json",
@@ -37,7 +37,7 @@ const MainPayment = ({ room, payInfo }) => {
             }
           } else {
             if (Object.keys(userInfo?.room).length == 0) {
-              fetch("http://localhost:5000/rooms", {
+              fetch("https://hostel-hub-yg4y.onrender.com/rooms", {
                 method: "PUT",
                 headers: {
                   "content-type": "application/json",
@@ -94,7 +94,7 @@ const MainPayment = ({ room, payInfo }) => {
               console.log(paymentData);
               event.preventDefault();
 
-              fetch("http://localhost:5000/payment", {
+              fetch("https://hostel-hub-yg4y.onrender.com/payment", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -119,7 +119,7 @@ const MainPayment = ({ room, payInfo }) => {
                 id: payInfo?._id,
                 amount: parseInt(room?.cost) + parseInt(payInfo?.due),
               };
-              fetch("http://localhost:5000/payments", {
+              fetch("https://hostel-hub-yg4y.onrender.com/payments", {
                 method: "PUT",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(paymentData),

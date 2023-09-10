@@ -38,7 +38,7 @@ const AddMealMain = () => {
       });
       return;
     }
-    fetch("http://localhost:5000/meals", {
+    fetch("https://hostel-hub-yg4y.onrender.com/meals", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +57,7 @@ const AddMealMain = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/meals")
+    fetch("https://hostel-hub-yg4y.onrender.com/meals")
       .then((res) => res.json())
       .then((data) => setMealData(data));
   }, []);
@@ -71,7 +71,7 @@ const AddMealMain = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/delete-meal/${id}`, {
+        fetch(`https://hostel-hub-yg4y.onrender.com/delete-meal/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

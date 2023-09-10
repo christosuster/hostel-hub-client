@@ -21,7 +21,7 @@ const Payment = () => {
   };
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/payments/${userInfo?._id}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/payments/${userInfo?._id}`)
       .then((res) => res.json())
       .then((data) => {
         setPayInfo(data);
@@ -47,7 +47,7 @@ const Payment = () => {
         productCategory: "Payment",
       };
       console.log(data);
-      fetch("http://localhost:5000/order", {
+      fetch("https://hostel-hub-yg4y.onrender.com/order", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),

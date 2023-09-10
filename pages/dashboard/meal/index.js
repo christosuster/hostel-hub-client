@@ -22,15 +22,15 @@ const Meals = () => {
 
   const router = useRouter();
   useEffect(() => {
-    fetch("http://localhost:5000/meals")
+    fetch("https://hostel-hub-yg4y.onrender.com/meals")
       .then((res) => res.json())
       .then((data) => setMealData(data));
 
-    fetch(`http://localhost:5000/users-data/${userInfo?.email}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/users-data/${userInfo?.email}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
 
-    fetch(`http://localhost:5000/payments/${userInfo?._id}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/payments/${userInfo?._id}`)
       .then((res) => res.json())
       .then((data) => setPayInfo(data));
 
@@ -116,7 +116,7 @@ const Meals = () => {
           nowTime.getTime() < lastDay.getTime()
         ) {
           setIsLoading(true);
-          fetch("http://localhost:5000/meals", {
+          fetch("https://hostel-hub-yg4y.onrender.com/meals", {
             method: "PUT",
             headers: {
               "content-type": "application/json",

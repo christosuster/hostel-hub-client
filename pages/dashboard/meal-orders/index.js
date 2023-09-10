@@ -8,11 +8,11 @@ const MealOrders = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/meals")
+    fetch("https://hostel-hub-yg4y.onrender.com/meals")
       .then((res) => res.json())
       .then((data) => setOrders(data));
 
-    fetch("http://localhost:5000/users")
+    fetch("https://hostel-hub-yg4y.onrender.com/users")
       .then((res) => res.json())
       .then((data) => setUserData(data));
   }, []);

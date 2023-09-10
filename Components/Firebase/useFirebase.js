@@ -32,7 +32,7 @@ const useFirebase = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        fetch("http://localhost:5000/users-data", {
+        fetch("https://hostel-hub-yg4y.onrender.com/users-data", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -58,7 +58,7 @@ const useFirebase = () => {
               advance: 0,
               paymentHistory: [],
             };
-            fetch("http://localhost:5000/payment", {
+            fetch("https://hostel-hub-yg4y.onrender.com/payment", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -125,7 +125,7 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users-data/${user?.email}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/users-data/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data))
       .catch((error) => {

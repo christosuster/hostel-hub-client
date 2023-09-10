@@ -22,14 +22,14 @@ const OccupantDetails = () => {
     if (router.isReady) {
       //   console.log(id);
       setId(router.query.occupantDetails);
-      fetch(`http://localhost:5000/rooms/${id}`)
+      fetch(`https://hostel-hub-yg4y.onrender.com/rooms/${id}`)
         .then((res) => res.json())
         .then((data) => {
           setRoom(data);
           console.log(data);
         });
 
-      fetch("http://localhost:5000/users")
+      fetch("https://hostel-hub-yg4y.onrender.com/users")
         .then((res) => res.json())
         .then((data) => {
           setUserData(data);

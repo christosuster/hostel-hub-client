@@ -8,7 +8,7 @@ const ManageUserElement = ({ data, remainingUsers, idx }) => {
   const [overdueDate, setOverdueDate] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments/${data._id}`)
+    fetch(`https://hostel-hub-yg4y.onrender.com/payments/${data._id}`)
       .then((res) => res.json())
       .then((data) => {
         setPayments(data);
@@ -33,7 +33,7 @@ const ManageUserElement = ({ data, remainingUsers, idx }) => {
     }).then((willDelete) => {
       if (willDelete) {
         remainingUsers(data._id);
-        fetch(`http://localhost:5000/users/${data._id}`, {
+        fetch(`https://hostel-hub-yg4y.onrender.com/users/${data._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
