@@ -59,20 +59,20 @@ function Carousel({ images }) {
                     <br />
                     <br />
                     <p className="text-xl">
-                      FOR{" "}
+                      From{" "}
                       <span className="text-4xl text-orange-500">
-                        {image.price}৳
+                        ৳{image.price}
                       </span>{" "}
-                      PER MONTH
+                      / month
                     </p>
                     <br />
                     <br />
-                    <Link href="/rooms">
+                    <Link href="/dashboard/rooms">
                       <button
                         style={{
                           transition: "0.5s ease-in-out",
                         }}
-                        className="border p-3 hover:bg-orange-400"
+                        className="border p-3 hover:bg-orange-400 hover:border-orange-400"
                       >
                         BOOK NOW!
                       </button>

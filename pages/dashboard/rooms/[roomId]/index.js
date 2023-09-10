@@ -67,19 +67,10 @@ export default function RoomDetails() {
                       className="w-full mt-2 max-h-[600px] object-contain rounded"
                       alt="roomImage"
                     />
-                    {/* <div className="my-10">
-                      <p className="text-xl">
-                        We take 5000৳ advance fee for security purpose. We give
-                        room rent in pre-paid system. So to book room you have
-                        to pay in total {parseInt(room?.cost) + 5000}
-                        <span className=" text-orange-500">৳</span>. Please
-                        click in booking if you agree.
-                      </p>
-                    </div> */}
                   </div>
                   <div className="w-full md:w-1/2 px-5 ">
                     <div className="flex mb-5">
-                      <h1 className="text-2xl font-bold w-[60%]">
+                      <h1 className=" text-xl text-indigo-400 w-[60%]">
                         {room.category == "Business" ? "Private" : "Shared"}{" "}
                         Room
                       </h1>
@@ -92,7 +83,7 @@ export default function RoomDetails() {
                         </h1>
                       </div>
                     </div>
-                    <p className="text-gray-400 py-5 ">{room.about}</p>
+                    <p className=" py-5 text-2xl font-bold ">{room.about}</p>
                     <h1>Room no: {room.roomNo} </h1>
                     <h1>Branch: {room.branch} </h1>
                     <h1>Attached bathroom: {room.attachedBathroom}</h1>

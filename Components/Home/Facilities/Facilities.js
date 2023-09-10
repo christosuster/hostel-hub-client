@@ -35,7 +35,7 @@ const Facilities = () => {
         />
         <FacilitiesIcon icon={<GiLockers />} iconText={"LOCKERS"} />
         <FacilitiesIcon icon={<BiCctv />} iconText={"CCTV"} />
-        <FacilitiesIcon icon={<GiConverseShoe />} iconText={"SHOW POLISHER"} />
+        <FacilitiesIcon icon={<GiConverseShoe />} iconText={"SHOE POLISHER"} />
         <FacilitiesIcon icon={<FaBatteryFull />} iconText={"POWER BACKUP"} />
       </div>
     </div>

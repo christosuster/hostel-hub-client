@@ -44,116 +44,173 @@ const MealOrders = () => {
   return (
     <Layout>
       <div className="min-h-[80vh]">
-        <h1 className="text-3xl text-center my-3">Meal Orders</h1>
+        <h1 className="text-3xl text-center my-4 ">Meal Orders</h1>
 
-        <div className="w-full">
-          <div className="card-design w-full my-3 overflow-x-auto">
+        <div className="w-full ">
+          <div className="w-full my-5 overflow-x-auto">
             <h1 className="text-center  rounded-none w-full text-xl my-2">
               BREAKFAST
             </h1>
-            <table className="table-auto card-design w-full text-center">
-              <tbody>
-                <tr className="card-design">
-                  <th>Package</th>
-                  <th>Name</th>
-                  <th>Branch</th>
-                  <th>Room No</th>
-                  <th>Phone No</th>
-                  <th>Date</th>
-                </tr>
-                {breakfast.map((item) => {
-                  idx1++;
-                  return item.bookedBy?.map((e) => {
-                    const data = findUser(e.uid);
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {breakfast.map((item) => {
+                idx1++;
+                return (
+                  <div className="card p-0 border-2 border-gray-500/30  ">
+                    <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
+                      <h1 className="font-bold">Breakfast #{idx1}</h1>
+                      <p className="text-sm ">
+                        Total Orders: {item?.bookedBy?.length}
+                      </p>
+                    </div>
 
-                    const date = new Date(e.mealDay);
-                    console.log(e);
-                    return (
-                      <tr key={e.uid}>
-                        <td>{idx1}</td>
-                        <td>{data.displayName}</td>
-                        <td>{data.room?.branch}</td>
-                        <td>{data.room?.roomNo}</td>
-                        <td>{data.phone}</td>
-                        <td>{date.toDateString()}</td>
-                      </tr>
-                    );
-                  });
-                })}
-              </tbody>
-            </table>
+                    {item.bookedBy?.map((e, i) => {
+                      const data = findUser(e.uid);
+
+                      const date = new Date(e.mealDay);
+                      console.log(e);
+                      return (
+                        <div
+                          className={`grid grid-cols-3 text-center ${
+                            i % 2 == 0 && "bg-zinc-600/20"
+                          } w-full gap-2
+                          `}
+                        >
+                          <div className="flex justify-center items-center flex-col p-1">
+                            <h1 className="font-semibold">
+                              {data?.displayName}
+                            </h1>
+                            <h1 className="text-gray-400 text-sm">
+                              {data?.phone}
+                            </h1>
+                          </div>
+                          <div className="flex flex-col justify-center items-center p-1">
+                            <h1>{data?.room?.branch}</h1>
+                            <h1 className="text-sm">
+                              Room #{data?.room?.roomNo}
+                            </h1>
+                          </div>
+                          <div className="flex justify-center items-center p-1">
+                            <h1 className="text-sm text-gray-400">
+                              {date.toDateString()}
+                            </h1>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="card-design w-full my-3 overflow-x-auto">
+          <div className=" w-full my-5 overflow-x-auto">
             <h1 className="text-center  rounded-none w-full text-xl my-2">
               LUNCH
             </h1>
-            <table className="table-auto  w-full text-center">
-              <tbody>
-                <tr className="card-design">
-                  <th>Package</th>
-                  <th>Name</th>
-                  <th>Branch</th>
-                  <th>Room No</th>
-                  <th>Phone No</th>
-                  <th>Date</th>
-                </tr>
-                {lunch.map((item) => {
-                  idx2++;
-                  return item.bookedBy?.map((e) => {
-                    const data = findUser(e.uid);
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {lunch.map((item) => {
+                idx2++;
+                return (
+                  <div className="card p-0 border-2 border-gray-500/30">
+                    <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
+                      <h1 className="font-bold">Lunch #{idx2}</h1>
+                      <p className="text-sm ">
+                        Total Orders: {item?.bookedBy?.length}
+                      </p>
+                    </div>
 
-                    const date = new Date(e.mealDay);
-                    console.log(e);
-                    return (
-                      <tr key={e.uid}>
-                        <td>{idx2}</td>
-                        <td>{data.displayName}</td>
-                        <td>{data.room?.branch}</td>
-                        <td>{data.room?.roomNo}</td>
-                        <td>{data.phone}</td>
-                        <td>{date.toDateString()}</td>
-                      </tr>
-                    );
-                  });
-                })}
-              </tbody>
-            </table>
+                    {item.bookedBy?.map((e, i) => {
+                      const data = findUser(e.uid);
+
+                      const date = new Date(e.mealDay);
+                      console.log(e);
+                      return (
+                        <div
+                          className={`grid grid-cols-3 text-center ${
+                            i % 2 == 0 && "bg-zinc-600/20"
+                          } w-full gap-2
+                          `}
+                        >
+                          <div className="flex justify-center items-center flex-col p-1">
+                            <h1 className="font-semibold">
+                              {data?.displayName}
+                            </h1>
+                            <h1 className="text-gray-400 text-sm">
+                              {data?.phone}
+                            </h1>
+                          </div>
+                          <div className="flex flex-col justify-center items-center p-1">
+                            <h1>{data?.room?.branch}</h1>
+                            <h1 className="text-sm">
+                              Room #{data?.room?.roomNo}
+                            </h1>
+                          </div>
+                          <div className="flex justify-center items-center p-1">
+                            <h1 className="text-sm text-gray-400">
+                              {date.toDateString()}
+                            </h1>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="card-design w-full my-3 overflow-x-auto">
+          <div className=" w-full my-5 overflow-x-auto">
             <h1 className="text-center  rounded-none w-full text-xl my-2">
               DINNER
             </h1>
-            <table className="table-auto text-center w-full">
-              <tbody className="">
-                <tr className="card-design">
-                  <th>Package</th>
-                  <th>Name</th>
-                  <th>Branch</th>
-                  <th>Room No</th>
-                  <th>Phone No</th>
-                  <th>Date</th>
-                </tr>
-                {dinner.map((item) => {
-                  idx3++;
-                  return item.bookedBy?.map((e) => {
-                    const data = findUser(e.uid);
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {breakfast.map((item) => {
+                idx3++;
+                return (
+                  <div className="card p-0 border-2 border-gray-500/30">
+                    <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
+                      <h1 className="font-bold">Dinner #{idx3}</h1>
+                      <p className="text-sm ">
+                        Total Orders: {item?.bookedBy?.length}
+                      </p>
+                    </div>
 
-                    const date = new Date(e.mealDay);
-                    console.log(e);
-                    return (
-                      <tr key={e.uid}>
-                        <td>{idx3}</td>
-                        <td>{data.displayName}</td>
-                        <td>{data.room?.branch}</td>
-                        <td>{data.room?.roomNo}</td>
-                        <td>{data.phone}</td>
-                        <td>{date.toDateString()}</td>
-                      </tr>
-                    );
-                  });
-                })}
-              </tbody>
-            </table>
+                    {item.bookedBy?.map((e, i) => {
+                      const data = findUser(e.uid);
+
+                      const date = new Date(e.mealDay);
+                      console.log(e);
+                      return (
+                        <div
+                          className={`grid grid-cols-3 text-center ${
+                            i % 2 == 0 && "bg-zinc-600/20"
+                          } w-full gap-2
+                          `}
+                        >
+                          <div className="flex justify-center items-center flex-col p-1">
+                            <h1 className="font-semibold">
+                              {data?.displayName}
+                            </h1>
+                            <h1 className="text-gray-400 text-sm">
+                              {data?.phone}
+                            </h1>
+                          </div>
+                          <div className="flex flex-col justify-center items-center p-1">
+                            <h1>{data?.room?.branch}</h1>
+                            <h1 className="text-sm">
+                              Room #{data?.room?.roomNo}
+                            </h1>
+                          </div>
+                          <div className="flex justify-center items-center p-1">
+                            <h1 className="text-sm text-gray-400">
+                              {date.toDateString()}
+                            </h1>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

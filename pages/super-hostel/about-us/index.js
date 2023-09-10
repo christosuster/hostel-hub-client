@@ -1,4 +1,4 @@
-import MainLayout from "../../Components/MainLayout/MainLayout";
+import MainLayout from "../../../Components/MainLayout/MainLayout";
 
 export default function AboutUs() {
   return (
@@ -15,19 +15,18 @@ export default function AboutUs() {
             Super Hostel
           </h1>
           <p className="text-gray-300 w-3/4 md:w-1/2">
-            Welcome to Universal Hostel, where travelers from around the world
-            find a home away from home. Nestled in the heart of Dhaka, we are
-            dedicated to providing a truly memorable and immersive experience
-            for every guest who walks through our doors.
+            Welcome to Universal Hostel, where student from all around
+            Bangladesh find a home away from home. Nestled in the heart of
+            Dhaka, we are dedicated to providing a truly memorable and immersive
+            experience for every guest who walks through our doors.
           </p>
           <br />
           <p className="text-gray-300 w-3/4 md:w-1/2">
-            Universal Hostel began as a vision to create a space that transcends
-            boundaries, connecting diverse cultures and fostering a sense of
-            global community. Our founders, avid travelers themselves, realized
-            the need for a place that not only offers comfortable accommodations
-            but also celebrates the spirit of adventure and exploration. With
-            this mission in mind, Universal Hostel was born.
+            At Super Hostel, we understand that the journey of being a student
+            away from home is an incredible adventure filled with opportunities
+            and challenges. That's why we've created a haven designed
+            specifically for students, offering not just a place to stay but a
+            supportive community that becomes your second family.
           </p>
           <div className="bg-orange-500 p-5 rounded-full aspect-square text-white font-bold mt-10 border-dashed border-4 border-[#1e2124]">
             <h1>BEST</h1>

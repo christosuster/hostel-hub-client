@@ -6,6 +6,8 @@ import Layout from "../../../Components/Dashboard/Layout";
 import { useRouter } from "next/router";
 import Loading from "../../../Components/Shared/Loading/Loading";
 import authCheck from "../../../Components/Firebase/authCheck";
+import { RiInformationLine } from "react-icons/ri";
+import { Tooltip } from "react-tooltip";
 
 const Meals = () => {
   const [breakfast, setBreakfast] = useState({ price: "0" });
@@ -162,7 +164,28 @@ const Meals = () => {
             </h1>
           </div>
           <div className="h-full card flex flex-col items-center w-full my-10">
-            <h1 className="text-2xl my-2">Today's Meal</h1>
+            <div className=" my-2 relative w-full flex">
+              <h1 className="text-2xl mx-auto">Today's Meal Plan</h1>
+              <a className="my-anchor-element absolute right-0 text-2xl">
+                <RiInformationLine />
+              </a>
+              <Tooltip
+                anchorSelect=".my-anchor-element"
+                variant="info"
+                place="bottom"
+                style={{ width: "300px" }}
+              >
+                "Today's Meal Plan" shows the meals which will be served to the
+                user today. These cannot be changed and user has been billed for
+                this already.
+                <br />
+                <br />
+                "Tomorrow's Meal Plan" shows the meals the user want to be
+                served tomorrow. User can freely select and modify the meal
+                plans till 11:59 PM today. After 11:59 PM, whatever is selected
+                will be confirmed, billed and served tomorrow.
+              </Tooltip>
+            </div>
 
             <div className="overflow-x-auto w-full">
               <table className="bg-slate-800 w-full table-fixed">
@@ -194,7 +217,7 @@ const Meals = () => {
           </div>
           {/* {userInfo && <h1>User found</h1>} */}
           <div className=" text-center w-2/3 md:w-1/2 max-w-lg mx-auto mt-10">
-            <h1 className="text-2xl">Tomorrow's Meal</h1>
+            <h1 className="text-2xl">Tomorrow's Meal Plan</h1>
             <div className="flex justify-between items-center my-3">
               <div>
                 <h1 className="text-2xl text-indigo-300 font-bold">

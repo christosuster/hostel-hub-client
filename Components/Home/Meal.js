@@ -13,28 +13,26 @@ const Meal = () => {
         <div className="lg:w-1/2 flex justify-center">
           <div>
             <h1 className=" text-7xl font-bold">
-              Breakfast <br /> Lunch & Dinner
+              Breakfast, <br /> Lunch & Dinner
             </h1>
             <p className=" py-10 tracking-[3px] font-bold">
-              ORDER BREAKFAST JUST FOR{" "}
-              <span className="text-orange-400">100৳</span>
-              <br />
-              WITH YOUR BOOKING
+              Meal plans starting from only{" "}
+              <span className="text-orange-400">৳ 100</span>
             </p>
             <Link
-              href="/meal"
+              href="/dashboard"
               className="transition duration-300 w-fit py-4 px-6 bg-gray-500 text-white font-bold mt-8 hover:bg-orange-500 "
             >
               BOOK NOW
             </Link>
           </div>
         </div>
-        <div className="lg:w-1/2 hidden lg:flex items-center justify-center">
+        {/* <div className="lg:w-1/2 hidden lg:flex items-center justify-center">
           <div className=" bg-orange-500 w-40 h-40 rounded-full flex flex-col justify-center items-center">
             <h1 className=" tracking-[3px] text-sm font-bold">FROM</h1>
             <h1 className="text-4xl font-semibold text-yellow-300">100৳</h1>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

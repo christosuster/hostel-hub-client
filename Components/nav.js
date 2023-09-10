@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import useAuth from "./Firebase/useAuth";
+import { BiLogInCircle } from "react-icons/bi";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -29,8 +30,11 @@ export default function Navbar() {
               />
             </a>
           </div>
-          <div>
-            <Link href={"/login"}>Portal</Link>
+          <div className="text-xl font-semibold ">
+            <Link href={"/login"} className="flex justify-center items-center">
+              Portal
+              <BiLogInCircle />
+            </Link>
           </div>
           {/* <div className="flex flex-row justify-center items-center">
             <div className="hidden lg:mr-5 md:block text-xs lg:text-sm flex-shrink flex-grow-0 justify-start px-2">

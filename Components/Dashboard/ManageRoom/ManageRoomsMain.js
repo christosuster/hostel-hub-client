@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import RoomContext from "../../contexts/RoomContext";
 import RoomInfo from "./RoomInfo";
 import { BsFillPersonFill } from "react-icons/bs";
+import { RiInformationLine } from "react-icons/ri";
+import { Tooltip } from "react-tooltip";
 
 const ManageRoomsMain = () => {
   // const [branchValue, setBranchValue] = useState("Mirpur 2");
@@ -26,22 +28,26 @@ const ManageRoomsMain = () => {
   }, [router?.isReady]);
   const { roomData, deleteItem } = useContext(RoomContext);
   return (
-    <div>
-      <h1 className="text-center text-5xl pb-5">Manage Rooms</h1>
+    <div className="card min-h-[85vh]">
+      <div className="relative pb-5 w-full flex justify-center items-center">
+        <h1 className="text-center text-3xl ">Manage Rooms</h1>
+        <a className="my-anchor-element absolute right-0 text-2xl">
+          <RiInformationLine />
+        </a>
+        <Tooltip
+          anchorSelect=".my-anchor-element"
+          variant="info"
+          place="bottom"
+          style={{ width: "300px" }}
+        >
+          To delete a room, make sure that the room doesn't have any residents.
+          <br />
+          <br />
+          Occupants show the current residents of a particular room.
+        </Tooltip>
+      </div>
       <div className="flex items-center flex-col pb-10">
         <div className="roomSubmit mb-8">
-          {/* <label htmlFor="branch">Choose a branch: </label>
-          <select
-            id="branch"
-            name="branch"
-            value={branchValue}
-            onChange={(e) => {
-              setBranchValue(e.target.value);
-            }}
-          >
-            <option value="Mirpur 2">Mirpur 2</option>
-            <option value="Dhanmondi">Dhanmondi</option>
-          </select> */}
           <label htmlFor="bookStatus">Showing</label>
           <select
             className="text-center mx-1"
@@ -61,7 +67,7 @@ const ManageRoomsMain = () => {
         </div>
         <div className="roomContent container mx-auto px-3">
           <div className="rooms">
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-4">
               {bookStatusValue === "all"
                 ? roomData?.map((room, i) => {
                     return (

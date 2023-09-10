@@ -25,7 +25,7 @@ const AddAdminMain = () => {
         console.log(data);
         if (data?.modifiedCount) {
           //   setSuccess(true);
-          swal("Success!", {
+          swal("Successful!", {
             icon: "success",
           });
           document.getElementById("make-admin").reset();

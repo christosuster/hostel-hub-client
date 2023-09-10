@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { AiOutlineSearch } from "react-icons/ai";
 import Loading from "../../Shared/Loading/Loading";
 import swal from "sweetalert";
+import { RiInformationLine } from "react-icons/ri";
+import { Tooltip } from "react-tooltip";
 
 const Withdraw = () => {
   const [isLoading, setIsLoading] = useState();
@@ -76,24 +78,43 @@ const Withdraw = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-[85vh]">
       {isLoading && <Loading></Loading>}
       {!isLoading && (
-        <div className="flex flex-col justify-center items-center w-full rounded-lg p-4">
-          <h1 className="text-center my-2 mb-10 text-2xl underline">
-            Withdraw Security Deposit
-          </h1>
-          <form onSubmit={handleSubmit(submitHandler)}>
+        <div className="flex card flex-col justify-center items-center w-full rounded-lg p-4">
+          <div className="relative w-full flex my-2 mb-10 items-center">
+            <h1 className="mx-auto  text-3xl ">Withdraw Security Deposit</h1>
+            <a className="my-anchor-element absolute right-0 text-2xl">
+              <RiInformationLine />
+            </a>
+            <Tooltip
+              anchorSelect=".my-anchor-element"
+              variant="info"
+              place="bottom"
+              style={{ width: "300px" }}
+            >
+              Enter the email of user who wants to withdraw their security
+              deposit. User needs to cancel room before being eligible for
+              withdrawl. After withdrawl, they won't be able to book rooms
+              anymore. If user has outstanding dues, the due amount will be
+              subtracted from their security deposit before withdrawl.
+            </Tooltip>
+          </div>
+
+          <form
+            onSubmit={handleSubmit(submitHandler)}
+            className="flex justify-center items-center"
+          >
             <input
               required
-              className="rounded-md h-14 min-w-[300px] p-2 text-lg"
+              className="rounded-md h-10 min-w-[300px] p-2 text-lg"
               type="text"
               name="search"
               {...register("search")}
               placeholder="Email of user"
             />
             <input
-              className="rounded-md h-14 ml-1 button cursor-pointer border-2 p-2 text-lg"
+              className="rounded-md h-10 ml-1 button cursor-pointer border-2 p-2 text-lg"
               type="submit"
               value="Submit"
             />

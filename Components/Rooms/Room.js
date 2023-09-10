@@ -27,37 +27,19 @@ export default function Room(props) {
           </h1>
         )}
       </div>
-      <div className="py-10 px-10 text-white h-64 flex justify-center flex-col text-center">
-        <p className="uppercase tracking-wide text-xl font-bold pb-4">
-          {room?.title}
+      <div className="px-8 py-5 text-white h-64 flex justify-center flex-col text-center">
+        <p className="tracking-wide text-2xl font-bold pb-4">{room?.title}</p>
+        <p className="text-xl text-gray-200 pb-6">
+          <span className="text-xl text-orange-500">৳ </span>
+          {room?.cost}
+          <span className="text-base text-gray-500"> / month </span>
         </p>
-        <p className="text-xl uppercase font-bold text-gray-200 pb-6">
-          per month{" "}
-          <span className="text-3xl text-orange-500">{room?.cost}৳</span>
-        </p>
-        <div>
+        <div className="h-full flex items-end justify-center">
           <Link href={`/dashboard/rooms/${room._id}`}>
             <button className="button mt-4 m-1">View Details</button>
           </Link>
         </div>
       </div>
     </div>
-    // <div className=" card" id={room._id}>
-    //   <img
-    //     src={room.image}
-    //     className="object-cover m-5 aspect-[4/3]"
-    //     alt="roomImage"
-    //   />
-    //   <h1>Attached bathroom: {room.attachedBathroom}</h1>
-    //   <h1>Attached balcony: {room.attachedBalcony}</h1>
-    //   <h1>Floor: {room.floor}</h1>
-    //   <h1>Rent per week: {room.cost} ৳</h1>
-
-    //   <div>
-    //     <Link href={`/rooms/${room._id}`}>
-    //       <button className="button mt-4 m-1">View Details</button>
-    //     </Link>
-    //   </div>
-    // </div>
   );
 }

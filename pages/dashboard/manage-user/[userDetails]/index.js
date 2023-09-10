@@ -31,8 +31,9 @@ const UserDetailsPage = ({}) => {
       );
   }, [id]);
   console.log(user, payments, room);
-  console.log(Date());
-  let bday = new Date(user.birthDate);
+
+  let bday = new Date(user?.birthDate);
+  console.log(bday);
   var bookedOn = new Date(room?.bookedOn);
   var bookedTill = new Date(room?.bookedTill);
   // console.log(bookedOn);
@@ -72,7 +73,7 @@ const UserDetailsPage = ({}) => {
                 <div className="w-1/2 md:w-1/3 p-2">
                   <h4 className="text-sm text-gray-500">BIRTHDAY</h4>
                   <h2 className="text-lg">
-                    {user?.birthday ? bday : "Unavailable"}
+                    {user?.birthDate ? bday.toDateString() : "Unavailable"}
                   </h2>
                 </div>
 
@@ -140,7 +141,9 @@ const UserDetailsPage = ({}) => {
             <h1 className="heading pb-5">MEAL INFORMATION</h1>
             <div className="w-full text-center">
               <div className="">
-                <h1 className="text-purple-500 text-lg">Selected Meal</h1>
+                <h1 className="text-purple-500 text-lg">
+                  Selected Meal For Tomorrow
+                </h1>
                 {!user?.mealPlan ? (
                   "No meal plan selected"
                 ) : (
@@ -283,40 +286,41 @@ const UserDetailsPage = ({}) => {
               </div>
             </div>
             <div className="col-span-12 md:col-span-8 ">
-              <div></div>
               <div className=" h-[300px] overflow-auto">
-                <table className="w-full block table-auto rounded-lg border-collapse">
-                  <thead className=" bg-neutral-900 sticky top-0">
-                    <tr className="">
-                      <th className="p-4 text-left font-medium text-white uppercase tracking-wider w-1/2">
-                        Date
+                <table className="w-full table-auto rounded-lg border-collapse">
+                  <thead className=" bg-neutral-900 sticky top-0 w-full">
+                    <tr className="w-full">
+                      <th className="p-4 text-center font-medium text-white uppercase tracking-wider w-1/3">
+                        Time
                       </th>
-                      <th className="p-4 text-left  font-medium text-white uppercase tracking-wider  w-1/2">
+                      <th className="p-4 text-center  font-medium text-white uppercase tracking-wider  w-1/3">
                         TYPE
                       </th>
-                      <th className="p-4 text-right font-medium text-white uppercase tracking-wider ">
+                      <th className="p-4 text-center font-medium text-white uppercase  tracking-wider w-1/3">
                         Amount
                       </th>
                     </tr>
                   </thead>
-                  <tbody className=" bg-stone-900 ">
+                  <tbody className=" bg-stone-900 w-full">
                     {payments?.paymentHistory
                       ?.toReversed()
                       .map((singlePay, i) => {
                         // console.log(singlePay);
                         const payDate = new Date(singlePay?.date);
+                        const payTime = new Date(singlePay?.time);
                         return (
                           <tr
                             className={`${!(i % 2) && "bg-[#36393e82]"}`}
                             key={i}
                           >
-                            <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
-                              {payDate.toDateString()}
+                            <td className="p-4 whitespace-nowrap text-sm font-normal text-white text-center">
+                              {payDate.toDateString()} <br />
+                              {singlePay?.time}
                             </td>
-                            <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
+                            <td className="p-4 whitespace-nowrap text-sm font-normal text-white text-center">
                               {singlePay?.type}
                             </td>
-                            <td className="p-4 text-right whitespace-nowrap text-sm font-semibold text-white">
+                            <td className="p-4  whitespace-nowrap text-sm font-semibold text-white text-center">
                               {singlePay?.type && singlePay.type == "Payment"
                                 ? `( ৳${singlePay?.amount} )`
                                 : `৳${singlePay?.amount}`}

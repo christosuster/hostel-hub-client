@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Super Hostel Portal</title>
-        <link rel="icon" href="/favicon2.ico" />
+        <link rel="icon" href="/favicon3.ico" />
       </Head>
       <AuthProvider>
         <RoomProvider>

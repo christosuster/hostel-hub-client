@@ -624,7 +624,7 @@ const Layout = ({ children }) => {
               <p className="text-center text-sm text-gray-500 my-3">
                 &copy; 2023{" "}
                 <a href="#" className="hover:underline" target="_blank">
-                  Christos Uster
+                  Hostel Hub
                 </a>
                 . All rights reserved.
               </p>

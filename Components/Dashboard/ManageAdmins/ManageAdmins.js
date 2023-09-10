@@ -3,6 +3,8 @@ import adminCheck from "../../Firebase/adminCheck";
 import authCheck from "../../Firebase/authCheck";
 import Loading from "../../Loading/Loading";
 import ManageAdminElement from "./ManageAdminElement";
+import { Tooltip } from "react-tooltip";
+import { RiInformationLine } from "react-icons/ri";
 
 const ManageAdmins = () => {
   const [users, setUsers] = useState([]);
@@ -24,8 +26,21 @@ const ManageAdmins = () => {
   };
   return (
     <div className="md:p-10 p-2">
-      <div className="flex items-center justify-center">
-        <h1 className="text-center text-2xl mb-3">Manage Admins</h1>
+      <div className="flex items-center justify-center relative mb-3">
+        <h1 className="text-center text-2xl ">Manage Admins</h1>
+        <a className="my-anchor-element absolute right-0 text-2xl">
+          <RiInformationLine />
+        </a>
+
+        <Tooltip
+          anchorSelect=".my-anchor-element"
+          variant="info"
+          place="bottom"
+          style={{ width: "300px" }}
+        >
+          Enter the email address of a non-admin user to make them an admin.
+          This user must not have dues or a room booked.
+        </Tooltip>
       </div>
       <div className="mx-auto overflow-x-auto w-full">
         <table className="table-auto text-left border-collapse mx-auto card-design w-full min-h-[100px]">

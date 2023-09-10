@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import adminCheck from "../../Firebase/adminCheck";
 import authCheck from "../../Firebase/authCheck";
 import Loading from "../../Shared/Loading/Loading";
+import { RiInformationLine } from "react-icons/ri";
+import { Tooltip } from "react-tooltip";
 
 const AddRoomMain = () => {
   // const { data } = props;
@@ -165,15 +167,24 @@ const AddRoomMain = () => {
           </div>
         </div>
       )}
-      <div className="container mx-auto px-3">
-        <form
-          onSubmit={handleSubmit(submitHandler)}
-          style={{
-            // boxShadow: "0 0 2rem 0 rgb(136 152 170 / 15%)",
-            backgroundColor: "#36393e52",
-          }}
-          className="my-5 rounded shadow-xl bg-slate-200 dark:bg-darkBlue p-6 text-Dark dark:text-white"
-        >
+      <div className="container mx-auto px-3 card w-full">
+        <div className="flex items-center justify-center relative mb-5 w-full">
+          <h1 className="text-center text-2xl ">Add New Room</h1>
+          <a className="my-anchor-element absolute right-0 text-2xl">
+            <RiInformationLine />
+          </a>
+
+          <Tooltip
+            anchorSelect=".my-anchor-element"
+            variant="info"
+            place="bottom"
+            style={{ width: "300px" }}
+          >
+            Fill in the necessary information to add this room into the
+            database.
+          </Tooltip>
+        </div>
+        <form onSubmit={handleSubmit(submitHandler)} className="w-full">
           <div className="grid grid-cols-12 gap-3">
             {/* Profile Photo Update Handling  */}
             <label className="col-span-12 flex flex-col md:col-span-6">

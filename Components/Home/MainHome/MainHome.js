@@ -16,7 +16,7 @@ const MainHome = () => {
   return (
     <div className="text-white">
       <Carousel images={banner_images}></Carousel>
-      <Rating></Rating>
+      {/* <Rating></Rating> */}
       <HelloSection></HelloSection>
       <BookingStages></BookingStages>
       {/* <Rooms></Rooms> */}

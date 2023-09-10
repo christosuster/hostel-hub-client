@@ -129,7 +129,7 @@ const UserInformation = () => {
           </div>
         </div>
         <Link href="/dashboard/updateProfile">
-          <button className="button my-3">Modify Profile</button>
+          <button className="button my-3">Edit Profile</button>
         </Link>
       </div>
 
@@ -164,6 +164,7 @@ const UserInformation = () => {
           <div className="h-full flex flex-col items-center w-full">
             <h1 className="text-3xl underline mb-3">Meal Plan</h1>
 
+            <h1 className="font-bold text-indigo-400 leading-5">Tomorrow</h1>
             <h1 className="mb-3 font-bold text-indigo-400 leading-5">
               {tomorrow.toDateString()}
             </h1>
@@ -309,24 +310,24 @@ const UserInformation = () => {
             <div className="overflow-x-auto mt-2 mb-4 h-[300px] rounded-lg  ">
               <div className="align-middle  w-full">
                 <div className="shadow overflow-hidden  w-full sm:rounded-lg ">
-                  <table className=" w-full divide-y divide-gray-200 text-white">
+                  <table className="text-center w-full divide-y divide-gray-200 text-white">
                     <thead className=" bg-neutral-900">
                       <tr>
                         <th
                           scope="col"
-                          className="p-4 text-left  font-medium text-white uppercase tracking-wider"
+                          className="p-4 text-center  font-medium text-white uppercase tracking-wider"
                         >
                           Date
                         </th>
                         <th
                           scope="col"
-                          className="p-4 text-left  font-medium text-white uppercase tracking-wider"
+                          className="p-4 text-center  font-medium text-white uppercase tracking-wider"
                         >
                           TYPE
                         </th>
                         <th
                           scope="col"
-                          className="p-4 text-right font-medium text-white uppercase tracking-wider"
+                          className="p-4 text-center font-medium text-white uppercase tracking-wider"
                         >
                           Amount
                         </th>
@@ -345,11 +346,13 @@ const UserInformation = () => {
                             >
                               <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
                                 {payDate.toDateString()}
+                                <br />
+                                {singlePay?.time}
                               </td>
                               <td className="p-4 whitespace-nowrap text-sm font-normal text-white">
                                 {singlePay?.type}
                               </td>
-                              <td className="p-4 text-right whitespace-nowrap text-sm font-semibold text-white">
+                              <td className="p-4 text-center whitespace-nowrap text-sm font-semibold text-white">
                                 {singlePay?.type && singlePay.type == "Payment"
                                   ? `( ৳${singlePay?.amount} )`
                                   : `৳${singlePay?.amount}`}

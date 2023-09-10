@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import adminCheck from "../../Firebase/adminCheck";
 import swal from "sweetalert";
+import { RiInformationLine } from "react-icons/ri";
+import { Tooltip } from "react-tooltip";
 
 const AddMealMain = () => {
   const router = useRouter();
@@ -91,15 +93,25 @@ const AddMealMain = () => {
   let idx3 = 0;
 
   return (
-    <div>
-      <div className="container mx-auto px-3 font-sansita">
+    <div className="min-h-[85vh]">
+      <div className="card w-full">
+        <div className="relative my-5 flex w-full">
+          <h1 className="text-3xl mx-auto">Add New Meal Plan</h1>
+          <a className="my-anchor-element absolute right-0 text-2xl">
+            <RiInformationLine />
+          </a>
+          <Tooltip
+            anchorSelect=".my-anchor-element"
+            variant="info"
+            place="bottom"
+            style={{ width: "300px" }}
+          >
+            Fill in the necessary information to add this meal plan to database.
+          </Tooltip>
+        </div>
         <form
           onSubmit={handleSubmit(submitHandler)}
-          style={{
-            // boxShadow: "0 0 2rem 0 rgb(136 152 170 / 15%)",
-            backgroundColor: "#36393e52",
-          }}
-          className="my-5 rounded shadow-xl bg-slate-200 dark:bg-darkBlue p-6 text-Dark dark:text-white"
+          className="w-full p-3 mt-4"
         >
           <div className="grid grid-cols-12 gap-3 py-2">
             <div className="col-span-12 flex flex-col  md:col-span-6">
@@ -108,7 +120,7 @@ const AddMealMain = () => {
                 value={time}
                 onChange={handleTime}
                 //   {...register("branch")}
-                className=" h-14 w-full cursor-pointer rounded-lg border-2 p-3 text-lg dark:border-0"
+                className=" h-14 w-full cursor-pointer rounded-lg  p-3 text-lg dark:border-0"
               >
                 <option className="hidden" placeholder="Eg. Breakfast"></option>
                 <option>Breakfast</option>
@@ -119,7 +131,7 @@ const AddMealMain = () => {
             <div className="col-span-12 flex flex-col  md:col-span-6">
               <label htmlFor="cost">Meal Price</label>
               <input
-                className="rounded-md h-14 border-2 p-2 text-lg"
+                className="rounded-md h-14  p-2 text-lg"
                 type="number"
                 placeholder="Eg. 70"
                 {...register("cost")}
@@ -129,7 +141,7 @@ const AddMealMain = () => {
             <div className="col-span-12 flex flex-col">
               <label htmlFor="about">Meal Items</label>
               <textarea
-                className="rounded-md border-2 p-2 text-lg"
+                className="rounded-md  p-2 text-lg"
                 type="text"
                 rows={5}
                 placeholder="Eg. Plain Rice \n Chicken Curry"
@@ -150,7 +162,7 @@ const AddMealMain = () => {
           <h1 className="text-4xl font-bold text-indigo-500 mb-8 mt-20">
             BREAKFAST
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-8 ">
             {mealData?.map((meal) => {
               if (meal.time == "Breakfast") {
                 const itemList = meal?.about?.split("\n");
@@ -187,7 +199,7 @@ const AddMealMain = () => {
           <h1 className="text-4xl font-bold text-indigo-500 mb-8 mt-20">
             LUNCH
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 ">
             {mealData?.map((meal) => {
               if (meal.time == "Lunch") {
                 const itemList = meal?.about?.split("\n");
@@ -224,7 +236,7 @@ const AddMealMain = () => {
           <h1 className="text-4xl font-bold text-indigo-500 mb-8 mt-20">
             DINNER
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 ">
             {mealData?.map((meal) => {
               if (meal.time == "Dinner") {
                 const itemList = meal?.about?.split("\n");
