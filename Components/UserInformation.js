@@ -169,7 +169,8 @@ const UserInformation = () => {
 
             <h1 className="font-bold text-indigo-400 leading-5">Tomorrow</h1>
             <h1 className="mb-3 font-bold text-indigo-400 leading-5">
-              {tomorrow.toDateString()}
+              {/* {tomorrow.toDateString()} */}
+              {tomorrow.toString()}
             </h1>
             <div className="overflow-x-auto w-full">
               <table className="bg-slate-800 dashboard-meal w-full">
