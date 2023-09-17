@@ -80,13 +80,7 @@ const Meals = () => {
     tomorrow.setDate(today.getDate() + 1);
     const tomorrowDate = tomorrow.toDateString();
     // console.log(userInfo);
-  }, [
-    userInfo?.email,
-    userInfo,
-    userInfo?.bookedTill,
-    mealData,
-    user?.bookedTill,
-  ]);
+  }, [userInfo?.email, userInfo, userInfo?.bookedTill, user?.bookedTill]);
   // console.log(lunch);
 
   console.log(user);
