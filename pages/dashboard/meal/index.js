@@ -188,7 +188,7 @@ const Meals = () => {
             </div>
 
             <div className="overflow-x-auto w-full">
-              <table className="bg-slate-800 w-full table-fixed">
+              <table className="bg-slate-800 w-full table-fixed min-h-[150px]">
                 <thead className="bg-slate-900">
                   <tr>
                     <th className="border-2 border-slate-900">Breakfast</th>

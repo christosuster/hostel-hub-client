@@ -13,6 +13,7 @@ const MainAdminDashboardHome = () => {
   const [rooms, setRooms] = useState();
   const [users, setUsers] = useState();
   const [meals, setMeals] = useState();
+  const [orders, setOrders] = useState();
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,6 +29,11 @@ const MainAdminDashboardHome = () => {
         fetch("https://hostel-hub-yg4y.onrender.com/users")
           .then((res) => res.json())
           .then((data) => setUsers(data.reverse()));
+      })
+      .then(() => {
+        fetch("https://hostel-hub-yg4y.onrender.com/orders")
+          .then((res) => res.json())
+          .then((data) => setOrders(data.reverse()));
       })
       .then(() => {
         fetch("https://hostel-hub-yg4y.onrender.com/meals")
@@ -51,7 +57,7 @@ const MainAdminDashboardHome = () => {
           </div>
           <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 my-4">
             <LatestCustomers users={users}></LatestCustomers>
-            <RoomLeaving payments={payments}></RoomLeaving>
+            <RoomLeaving orders={orders}></RoomLeaving>
           </div>
         </div>
       )}

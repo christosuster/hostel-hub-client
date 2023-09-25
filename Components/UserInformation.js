@@ -167,13 +167,15 @@ const UserInformation = () => {
           <div className="h-full flex flex-col items-center w-full">
             <h1 className="text-3xl underline mb-3">Meal Plan</h1>
 
-            <h1 className="font-bold text-indigo-400 leading-5">Tomorrow</h1>
+            <h1 className="font-bold text-indigo-400 leading-5">
+              For Tomorrow
+            </h1>
             <h1 className="mb-3 font-bold text-indigo-400 leading-5">
               {tomorrow.toDateString()}
               {/* {tomorrow.toString()} */}
             </h1>
             <div className="overflow-x-auto w-full">
-              <table className="bg-slate-800 dashboard-meal w-full">
+              <table className="bg-slate-800 dashboard-meal w-full min-h-[200px]">
                 <thead className="bg-slate-900">
                   <tr>
                     <th className="">Breakfast</th>
@@ -181,9 +183,9 @@ const UserInformation = () => {
                     <th>Dinner</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr className="text-center">
-                    <td className="text-xs whitespace-pre-line">
+                <tbody className="">
+                  <tr className="text-center ">
+                    <td className="text-xs whitespace-pre-line ">
                       {user?.mealPlan && user?.mealPlan[0]?.about}
                     </td>
                     <td className="text-xs whitespace-pre-line">
@@ -305,18 +307,18 @@ const UserInformation = () => {
             ""
           )}
 
-          <Link className="button block my-4" href={"/dashboard/pay"}>
+          <Link className="button block my-4" href={"/dashboard/payment"}>
             Make Payment
           </Link>
         </div>
         <div className="w-full">
           {currentUserPayment && (
-            <div className="overflow-x-auto mt-2 mb-4 h-[300px] rounded-lg  ">
+            <div className="overflow-x-auto mt-2 mb-4 h-[300px] rounded-lg bg-neutral-800 ">
               <div className="align-middle  w-full">
-                <div className="shadow overflow-hidden  w-full sm:rounded-lg ">
-                  <table className="text-center w-full divide-y divide-gray-200 text-white">
-                    <thead className=" bg-neutral-900">
-                      <tr>
+                <div className="shadow overflow-hidden  w-full ">
+                  <table className="text-center w-full divide-y divide-gray-200 text-white ">
+                    <thead className=" bg-neutral-900 rounded-b-none">
+                      <tr className="rounded-b-none">
                         <th
                           scope="col"
                           className="p-4 text-center  font-medium text-white uppercase tracking-wider"
@@ -357,7 +359,9 @@ const UserInformation = () => {
                                 {singlePay?.type}
                               </td>
                               <td className="p-4 text-center whitespace-nowrap text-sm font-semibold text-white">
-                                {singlePay?.type && singlePay.type == "Payment"
+                                {singlePay?.type &&
+                                (singlePay.type == "Payment" ||
+                                  singlePay.type == "Room Booking")
                                   ? `( ৳${singlePay?.amount} )`
                                   : `৳${singlePay?.amount}`}
                               </td>

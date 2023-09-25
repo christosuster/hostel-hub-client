@@ -90,7 +90,7 @@ const Sighup = () => {
               <span className="text-gray-300 mt-2">
                 Register Your Account On
               </span>
-              <h1 className="mb-2 text-3xl">Universal Hostel</h1>
+              <h1 className="mb-2 text-3xl">Super Hostel</h1>
             </div>
             <form style={{ minWidth: "300px" }} onSubmit={handleSubmit}>
               <div className="">

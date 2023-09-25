@@ -15,10 +15,10 @@ export default function AboutUs() {
             Super Hostel
           </h1>
           <p className="text-gray-300 w-3/4 md:w-1/2">
-            Welcome to Universal Hostel, where student from all around
-            Bangladesh find a home away from home. Nestled in the heart of
-            Dhaka, we are dedicated to providing a truly memorable and immersive
-            experience for every guest who walks through our doors.
+            Welcome to Super Hostel, where student from all around Bangladesh
+            find a home away from home. Nestled in the heart of Dhaka, we are
+            dedicated to providing a truly memorable and immersive experience
+            for every guest who walks through our doors.
           </p>
           <br />
           <p className="text-gray-300 w-3/4 md:w-1/2">

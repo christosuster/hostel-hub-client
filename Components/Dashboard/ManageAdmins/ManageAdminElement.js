@@ -4,7 +4,7 @@ const ManageAdminElement = ({ data, remainingUsers }) => {
   const removeAdmin = () => {
     swal({
       title: "Are you sure?",
-      text: "Once remove, user role will be changed!",
+      text: "Once removed, user role will be changed!",
       icon: "warning",
       buttons: true,
       dangerMode: true,

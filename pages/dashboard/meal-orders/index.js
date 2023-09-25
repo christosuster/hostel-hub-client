@@ -17,209 +17,206 @@ const MealOrders = () => {
       .then((data) => setUserData(data));
   }, []);
 
-  const breakfast = orders.filter((e) => {
-    return e.time == "Breakfast";
+  let breakfast = [[], [], [], [], [], [], [], [], [], []];
+  let lunch = [[], [], [], [], [], [], [], [], [], []];
+  let dinner = [[], [], [], [], [], [], [], [], [], []];
+
+  const today = new Date();
+
+  userData.map((user) => {
+    user?.room?._id &&
+      user?.confirmedMealPlan &&
+      user?.confirmedMealPlan[0]?._id &&
+      breakfast[user.confirmedMealPlan[0].mealNo].push({
+        displayName: user.displayName,
+        phone: user.phone,
+        roomNo: user.room?.roomNo,
+        branch: user.room?.branch,
+      });
+
+    user?.room?._id &&
+      user?.confirmedMealPlan &&
+      user?.confirmedMealPlan[1]?._id &&
+      lunch[user.confirmedMealPlan[1].mealNo].push({
+        displayName: user.displayName,
+        phone: user.phone,
+        roomNo: user.room?.roomNo,
+        branch: user.room?.branch,
+      });
+
+    user?.room?._id &&
+      user?.confirmedMealPlan &&
+      user?.confirmedMealPlan[2]?._id &&
+      dinner[user.confirmedMealPlan[0].mealNo].push({
+        displayName: user.displayName,
+        phone: user.phone,
+        roomNo: user.room?.roomNo,
+        branch: user.room?.branch,
+      });
   });
 
-  const lunch = orders.filter((e) => {
-    return e.time == "Lunch";
-  });
+  console.log(breakfast, lunch, dinner);
 
-  const dinner = orders.filter((e) => {
-    return e.time == "Dinner";
-  });
-
-  const findUser = (id) => {
-    let data = {};
-    userData.forEach((user) => {
-      if (user._id == id) {
-        data = user;
-      }
-    });
-    return data;
-  };
-  let idx1 = 0;
-  let idx2 = 0;
-  let idx3 = 0;
   return (
     <Layout>
       <div className="min-h-[80vh]">
-        <h1 className="text-3xl text-center my-4 ">Meal Orders</h1>
+        <h1 className="text-3xl text-center mt-4 ">Meal Orders</h1>
+        <h1 className=" text-center mb-4 text-gray-300">
+          {today.toDateString()}
+        </h1>
 
         <div className="w-full ">
-          <div className="w-full my-5 overflow-x-auto">
-            <h1 className="text-center  rounded-none w-full text-xl my-2">
+          <div className="w-full my-5 overflow-x-auto bg-neutral-900 p-3 rounded-lg">
+            <h1 className="text-center  rounded-none w-full text-xl mb-2 font-bold">
               BREAKFAST
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {breakfast.map((item, index) => {
-                idx1++;
                 return (
-                  <div
-                    className="card p-0 border-2 border-gray-500/30 "
-                    key={index}
-                  >
-                    <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
-                      <h1 className="font-bold">Breakfast #{idx1}</h1>
-                      <p className="text-sm ">
-                        Total Orders: {item?.bookedBy?.length}
-                      </p>
-                    </div>
+                  item.length > 0 && (
+                    <div
+                      className="card p-0 border-2 border-gray-500/30 "
+                      key={index}
+                    >
+                      <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
+                        <h1 className="font-bold">Breakfast #{index}</h1>
+                        <p className="text-sm ">Total Orders: {item?.length}</p>
+                      </div>
 
-                    {item.bookedBy?.map((e, i) => {
-                      const data = findUser(e.uid);
-
-                      const date = new Date(e.mealDay);
-                      console.log(e);
-                      return (
-                        <div
-                          className={`grid grid-cols-3 text-center ${
-                            i % 2 == 0 && "bg-zinc-600/20"
-                          } w-full gap-2
+                      {item.map((e, i) => {
+                        return (
+                          <div
+                            className={`grid grid-cols-3 text-center ${
+                              i % 2 == 0 && "bg-zinc-600/20"
+                            } w-full gap-2
                           `}
-                          key={e.uid}
-                        >
-                          <div className="flex justify-center items-center flex-col p-1">
-                            <h1 className="font-semibold">
-                              {data?.displayName}
-                            </h1>
-                            <h1 className="text-gray-400 text-sm">
-                              {data?.phone}
-                            </h1>
+                            key={i}
+                          >
+                            <div className="flex justify-center items-center flex-col p-1">
+                              <h1 className="font-semibold">
+                                {e?.displayName}
+                              </h1>
+                              <h1 className="text-gray-400 text-sm">
+                                {e?.phone}
+                              </h1>
+                            </div>
+                            <div className="flex flex-col justify-center items-center p-1">
+                              <h1>{e?.branch}</h1>
+                            </div>
+                            <div className="flex justify-center items-center p-1">
+                              <h1 className="text-sm">
+                                Room <br />#{e?.roomNo}
+                              </h1>
+                            </div>
                           </div>
-                          <div className="flex flex-col justify-center items-center p-1">
-                            <h1>{data?.room?.branch}</h1>
-                            <h1 className="text-sm">
-                              Room #{data?.room?.roomNo}
-                            </h1>
-                          </div>
-                          <div className="flex justify-center items-center p-1">
-                            <h1 className="text-sm text-gray-400">
-                              {date.toDateString()}
-                            </h1>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  )
                 );
               })}
             </div>
           </div>
-          <div className=" w-full my-5 overflow-x-auto">
-            <h1 className="text-center  rounded-none w-full text-xl my-2">
+
+          <div className="w-full my-5 overflow-x-auto bg-neutral-900 p-3 rounded-lg">
+            <h1 className="text-center  rounded-none w-full text-xl mb-2 font-bold">
               LUNCH
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {lunch.map((item, index) => {
-                idx2++;
                 return (
-                  <div
-                    className="card p-0 border-2 border-gray-500/30"
-                    key={index}
-                  >
-                    <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
-                      <h1 className="font-bold">Lunch #{idx2}</h1>
-                      <p className="text-sm ">
-                        Total Orders: {item?.bookedBy?.length}
-                      </p>
-                    </div>
+                  item.length > 0 && (
+                    <div
+                      className="card p-0 border-2 border-gray-500/30 "
+                      key={index}
+                    >
+                      <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
+                        <h1 className="font-bold">Lunch #{index}</h1>
+                        <p className="text-sm ">Total Orders: {item?.length}</p>
+                      </div>
 
-                    {item.bookedBy?.map((e, i) => {
-                      const data = findUser(e.uid);
-
-                      const date = new Date(e.mealDay);
-                      console.log(e);
-                      return (
-                        <div
-                          key={e.uid}
-                          className={`grid grid-cols-3 text-center ${
-                            i % 2 == 0 && "bg-zinc-600/20"
-                          } w-full gap-2
+                      {item.map((e, i) => {
+                        return (
+                          <div
+                            className={`grid grid-cols-3 text-center ${
+                              i % 2 == 0 && "bg-zinc-600/20"
+                            } w-full gap-2
                           `}
-                        >
-                          <div className="flex justify-center items-center flex-col p-1">
-                            <h1 className="font-semibold">
-                              {data?.displayName}
-                            </h1>
-                            <h1 className="text-gray-400 text-sm">
-                              {data?.phone}
-                            </h1>
+                            key={i}
+                          >
+                            <div className="flex justify-center items-center flex-col p-1">
+                              <h1 className="font-semibold">
+                                {e?.displayName}
+                              </h1>
+                              <h1 className="text-gray-400 text-sm">
+                                {e?.phone}
+                              </h1>
+                            </div>
+                            <div className="flex flex-col justify-center items-center p-1">
+                              <h1>{e?.branch}</h1>
+                            </div>
+                            <div className="flex justify-center items-center p-1">
+                              <h1 className="text-sm">
+                                Room <br />#{e?.roomNo}
+                              </h1>
+                            </div>
                           </div>
-                          <div className="flex flex-col justify-center items-center p-1">
-                            <h1>{data?.room?.branch}</h1>
-                            <h1 className="text-sm">
-                              Room #{data?.room?.roomNo}
-                            </h1>
-                          </div>
-                          <div className="flex justify-center items-center p-1">
-                            <h1 className="text-sm text-gray-400">
-                              {date.toDateString()}
-                            </h1>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  )
                 );
               })}
             </div>
           </div>
-          <div className=" w-full my-5 overflow-x-auto">
-            <h1 className="text-center  rounded-none w-full text-xl my-2">
+
+          <div className="w-full my-5 overflow-x-auto bg-neutral-900 p-3 rounded-lg">
+            <h1 className="text-center  rounded-none w-full text-xl font-bold mb-2">
               DINNER
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {breakfast.map((item, index) => {
-                idx3++;
+              {dinner.map((item, index) => {
                 return (
-                  <div
-                    key={index}
-                    className="card p-0 border-2 border-gray-500/30"
-                  >
-                    <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
-                      <h1 className="font-bold">Dinner #{idx3}</h1>
-                      <p className="text-sm ">
-                        Total Orders: {item?.bookedBy?.length}
-                      </p>
-                    </div>
+                  item.length > 0 && (
+                    <div
+                      className="card p-0 border-2 border-gray-500/30 "
+                      key={index}
+                    >
+                      <div className="bg-zinc-900 w-full rounded-t-lg p-2 text-center">
+                        <h1 className="font-bold">Dinner #{index}</h1>
+                        <p className="text-sm ">Total Orders: {item?.length}</p>
+                      </div>
 
-                    {item.bookedBy?.map((e, i) => {
-                      const data = findUser(e.uid);
-
-                      const date = new Date(e.mealDay);
-                      console.log(e);
-                      return (
-                        <div
-                          key={e.uid}
-                          className={`grid grid-cols-3 text-center ${
-                            i % 2 == 0 && "bg-zinc-600/20"
-                          } w-full gap-2
+                      {item.map((e, i) => {
+                        return (
+                          <div
+                            className={`grid grid-cols-3 text-center ${
+                              i % 2 == 0 && "bg-zinc-600/20"
+                            } w-full gap-2
                           `}
-                        >
-                          <div className="flex justify-center items-center flex-col p-1">
-                            <h1 className="font-semibold">
-                              {data?.displayName}
-                            </h1>
-                            <h1 className="text-gray-400 text-sm">
-                              {data?.phone}
-                            </h1>
+                            key={i}
+                          >
+                            <div className="flex justify-center items-center flex-col p-1">
+                              <h1 className="font-semibold">
+                                {e?.displayName}
+                              </h1>
+                              <h1 className="text-gray-400 text-sm">
+                                {e?.phone}
+                              </h1>
+                            </div>
+                            <div className="flex flex-col justify-center items-center p-1">
+                              <h1>{e?.branch}</h1>
+                            </div>
+                            <div className="flex justify-center items-center p-1">
+                              <h1 className="text-sm">
+                                Room <br />#{e?.roomNo}
+                              </h1>
+                            </div>
                           </div>
-                          <div className="flex flex-col justify-center items-center p-1">
-                            <h1>{data?.room?.branch}</h1>
-                            <h1 className="text-sm">
-                              Room #{data?.room?.roomNo}
-                            </h1>
-                          </div>
-                          <div className="flex justify-center items-center p-1">
-                            <h1 className="text-sm text-gray-400">
-                              {date.toDateString()}
-                            </h1>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  )
                 );
               })}
             </div>

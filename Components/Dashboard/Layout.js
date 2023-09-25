@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
                   id="toggleSidebarMobile"
                   aria-expanded="true"
                   aria-controls="sidebar"
-                  className="lg:hidden mr-2 text-gray-600 hover:text-white cursor-pointer p-2 hover:bg-[#1e2124] focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded"
+                  className="lg:hidden mr-2 text-gray-600 hover:text-white cursor-pointer p-2 hover:bg-[#1e2124]  rounded"
                   onClick={handleClick}
                 >
                   <svg
@@ -132,7 +132,7 @@ const Layout = ({ children }) => {
                     Dashboard
                   </a> */}
                   <h1 className="text-4xl text-center w-full">
-                    {userInfo?.role == "admin" ? "Admin" : "User"} Dashboard
+                    {userInfo?.role == "admin" ? "Admin" : "Resident"} Dashboard
                   </h1>
                 </div>
                 {/* <div className="flex items-center">
