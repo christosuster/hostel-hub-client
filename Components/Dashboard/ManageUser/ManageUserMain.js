@@ -35,6 +35,7 @@ const ManageUserMain = () => {
           variant="info"
           place="bottom"
           style={{ width: "300px" }}
+          clickable={true}
         >
           Deleting a user will remove all of that user's information from the
           database. Any room or meal booked by the user will also be cleared.

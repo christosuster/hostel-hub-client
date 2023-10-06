@@ -37,6 +37,7 @@ const ManageAdmins = () => {
           variant="info"
           place="bottom"
           style={{ width: "300px" }}
+          clickable="true"
         >
           Enter the email address of a non-admin user to make them an admin.
           This user must not have dues or a room booked.
