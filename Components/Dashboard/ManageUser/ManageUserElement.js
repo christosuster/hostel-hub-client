@@ -68,12 +68,9 @@ const ManageUserElement = ({ data, remainingUsers, idx }) => {
           data?.room?.category == "Business" &&
           "Private Room"}
         <br />
-        {data?.room != "" &&
-          data?.room != {} &&
-          today.getTime() >= overdueDate?.getTime() &&
-          parseInt(payments?.due) >= parseInt(payments?.advance) && (
-            <span className="text-red-500 animate-pulse">OVERDUE!</span>
-          )}
+        {parseInt(payments?.due) >= parseInt(payments?.advance) && (
+          <span className="text-red-500 animate-pulse">OVERDUE!</span>
+        )}
       </td>
       <td className="text-right ">
         <Link href={`/dashboard/manage-user/${data._id}`}>
