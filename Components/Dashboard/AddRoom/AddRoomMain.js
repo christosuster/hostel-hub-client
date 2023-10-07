@@ -29,10 +29,10 @@ const AddRoomMain = () => {
     setCategory(event.target.value);
   };
   const handleBathroom = (event) => {
-    setCategory(event.target.value);
+    setBathroom(event.target.value);
   };
   const handleBalcony = (event) => {
-    setCategory(event.target.value);
+    setBalcony(event.target.value);
   };
 
   const {
@@ -112,13 +112,20 @@ const AddRoomMain = () => {
       image: image,
       branch: branch,
       category: category,
+      attachedBalcony: balcony,
+      attachedBathroom: bathroom,
       status: "Available",
       bookedBy: "",
     };
     if (roomInfo.category === "Shared") {
+      roomInfo.category = "Economic";
       roomInfo.seat = 4;
       roomInfo.bookedBy = "";
     }
+    if (roomInfo.category === "Private") {
+      roomInfo.category = "Business";
+    }
+
     console.log(roomInfo);
     if (
       !roomInfo?.title ||
@@ -131,12 +138,9 @@ const AddRoomMain = () => {
       !roomInfo?.cost ||
       !roomInfo?.floor
     ) {
-      swal(
-        "Your have to fill all field. Please enter the date if anyone is missing. Thank you.",
-        {
-          icon: "warning",
-        }
-      );
+      swal("Please fill in all the fields!", {
+        icon: "warning",
+      });
       setIsLoading(false);
       return;
     }

@@ -33,7 +33,7 @@ const AddMealMain = () => {
     };
     if (!roomInfo?.time || !roomInfo?.about || !roomInfo?.cost) {
       console.log(roomInfo?.time, roomInfo?.about, roomInfo?.cost);
-      swal("Please fill in all fields!", {
+      swal("Please fill in all the fields!", {
         icon: "warning",
       });
       return;
@@ -51,9 +51,9 @@ const AddMealMain = () => {
           swal("Meal has been added!", {
             icon: "success",
           });
-          router.replace("/dashboard");
         }
-      });
+      })
+      .then(router.reload);
   };
 
   useEffect(() => {
