@@ -97,17 +97,6 @@ const AddMealMain = () => {
       <div className="card w-full">
         <div className="relative my-5 flex w-full">
           <h1 className="text-3xl mx-auto">Add New Meal Plan</h1>
-          <a className="my-anchor-element absolute right-0 text-2xl">
-            <RiInformationLine />
-          </a>
-          <Tooltip
-            anchorSelect=".my-anchor-element"
-            variant="info"
-            place="bottom"
-            style={{ width: "300px" }}
-          >
-            Fill in the necessary information to add this meal plan to database.
-          </Tooltip>
         </div>
         <form
           onSubmit={handleSubmit(submitHandler)}

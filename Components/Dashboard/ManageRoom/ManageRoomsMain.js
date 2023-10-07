@@ -31,20 +31,6 @@ const ManageRoomsMain = () => {
     <div className="card min-h-[85vh]">
       <div className="relative pb-5 w-full flex justify-center items-center">
         <h1 className="text-center text-3xl ">Manage Rooms</h1>
-        <a className="my-anchor-element absolute right-0 text-2xl">
-          <RiInformationLine />
-        </a>
-        <Tooltip
-          anchorSelect=".my-anchor-element"
-          variant="info"
-          place="bottom"
-          style={{ width: "300px" }}
-        >
-          To delete a room, make sure that the room doesn't have any residents.
-          <br />
-          <br />
-          Occupants show the current residents of a particular room.
-        </Tooltip>
       </div>
       <div className="flex items-center flex-col pb-10">
         <div className="roomSubmit mb-8">

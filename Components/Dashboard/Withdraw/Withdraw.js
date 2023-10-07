@@ -84,21 +84,6 @@ const Withdraw = () => {
         <div className="flex card flex-col justify-center items-center w-full rounded-lg p-4">
           <div className="relative w-full flex my-2 mb-10 items-center">
             <h1 className="mx-auto  text-3xl ">Withdraw Security Deposit</h1>
-            <a className="my-anchor-element absolute right-0 text-2xl">
-              <RiInformationLine />
-            </a>
-            <Tooltip
-              anchorSelect=".my-anchor-element"
-              variant="info"
-              place="bottom"
-              style={{ width: "300px" }}
-            >
-              Enter the email of user who wants to withdraw their security
-              deposit. User needs to cancel room before being eligible for
-              withdrawl. After withdrawl, they won't be able to book rooms
-              anymore. If user has outstanding dues, the due amount will be
-              subtracted from their security deposit before withdrawl.
-            </Tooltip>
           </div>
 
           <form

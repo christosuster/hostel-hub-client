@@ -166,25 +166,6 @@ const Meals = () => {
           <div className="h-full card flex flex-col items-center w-full my-10">
             <div className=" my-2 relative w-full flex">
               <h1 className="text-2xl mx-auto">Today&apos;s Meal Plan</h1>
-              <a className="my-anchor-element absolute right-0 text-2xl">
-                <RiInformationLine />
-              </a>
-              <Tooltip
-                anchorSelect=".my-anchor-element"
-                variant="info"
-                place="bottom"
-                style={{ width: "300px" }}
-              >
-                &quot;Today&apos;s Meal Plan&quot; shows the meals which will be
-                served to the user today. These cannot be changed and user has
-                been billed for this already.
-                <br />
-                <br />
-                &quot;Tomorrow&apos;s Meal Plan&quot; shows the meals the user
-                want to be served tomorrow. User can freely select and modify
-                the meal plans till 11:59 PM today. After 11:59 PM, whatever is
-                selected will be confirmed, billed and served tomorrow.
-              </Tooltip>
             </div>
 
             <div className="overflow-x-auto w-full">

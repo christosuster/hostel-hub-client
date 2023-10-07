@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import adminCheck from "../../Firebase/adminCheck";
 import authCheck from "../../Firebase/authCheck";
@@ -28,22 +29,6 @@ const ManageAdmins = () => {
     <div className="md:p-10 p-2">
       <div className="flex items-center justify-center relative mb-3">
         <h1 className="text-center text-2xl ">Manage Admins</h1>
-
-        <a
-          className="my-anchor-element absolute right-0 text-2xl "
-          data-tooltip-id="my-tooltip"
-          data-tooltip-content="Enter the email address of a non-admin user to make them an admin.
-          This user must not have dues or a room booked."
-        >
-          <RiInformationLine />
-        </a>
-
-        <Tooltip
-          clickable={true}
-          id="my-tooltip"
-          variant="info"
-          style={{ width: "300px" }}
-        />
       </div>
       <div className="mx-auto overflow-x-auto w-full">
         <table className="table-auto text-left border-collapse mx-auto card-design w-full min-h-[100px]">

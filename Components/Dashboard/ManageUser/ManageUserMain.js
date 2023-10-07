@@ -27,27 +27,6 @@ const ManageUserMain = () => {
     <div className="min-h-[80vh]">
       <div className="flex items-center justify-center relative mb-3">
         <h1 className="text-center text-2xl ">Manage Users</h1>
-        <a className="my-anchor-element absolute right-0 text-2xl">
-          <RiInformationLine />
-        </a>
-        <Tooltip
-          anchorSelect=".my-anchor-element"
-          variant="info"
-          place="bottom"
-          style={{ width: "300px" }}
-          clickable={true}
-        >
-          Deleting a user will remove all of that user's information from the
-          database. Any room or meal booked by the user will also be cleared.
-          <br />
-          <br />
-          Room status shows the type of room each user has booked.
-          <br />
-          <br />
-          <span className="text-red-500 font-bold">OVERDUE!</span> warning
-          indicates that the user has dues over their Security Deposit amount
-          and will soon not be able to book meals anymore.
-        </Tooltip>
       </div>
 
       <div className="overflow-x-auto w-full">
